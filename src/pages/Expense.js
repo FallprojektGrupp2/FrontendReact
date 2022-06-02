@@ -1,7 +1,7 @@
 
 
 const Expense = () => {
-    return <h1>Incomes</h1>;
+    return <h1>Expenses</h1>;
 };
 
 export default Expense
