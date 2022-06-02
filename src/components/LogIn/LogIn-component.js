@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react";
 import "./Login.css";
-import { Row, Col } from "antd";
+import { Message } from "./Message"; 
+import { Alert } from "antd";
 import { useMediaQuery } from "react-responsive";
 
 const Login = (props) => {
+    const [password, setPassword] = useState(true);
+    function PasswordShow() {
+        password ? setPassword(false) : setPassword(true);       
+    }
 
+    //-----------------------------------------------------------------------
   return (
 <div className="main">
-    <p id="message"></p>
+    <Message/>
     <input type="checkbox" id="chk" name="chk" aria-hidden="true"/>
         <div className="login">
             <form id="loginForm">
                 <label for="chk" aria-hidden="true">Login</label>
                 <input id="userNameInput" type="text" placeholder="Username" minlength="2"  maxlength="50" required/>
-                <input id="passwordInput" type="password" name="pswd" placeholder="Password" minlength="2"  maxlength="50" required/>
-                <input type="checkbox" onclick="PasswordShow()"/>
+                <input id="passwordInput" type= {password ? "password" : "text"} name="pswd" placeholder="Password" minlength="2"  maxlength="50" required/>
+                <input type="checkbox" onclick={PasswordShow}/>
                 <button id="loginSubmit">Login</button>
             </form>
         </div>
