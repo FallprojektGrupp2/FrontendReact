@@ -1,18 +1,27 @@
-import LogIn from "./pages/Login"
+import LoginPage from './pages/Login';
 import { Link, Outlet } from "react-router-dom";
-import React from 'react';
+import React, { useState } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import 'antd/dist/antd.css';
 import Expense from "./pages/Expense";
 const { Header, Content, Footer } = Layout;
 
+function setToken(userToken) {
+  sessionStorage.setItem('token', JSON.stringify(userToken));
+}
+
+function getToken() {
+}
 
 function App() {
+  const token = getToken();
   const items = [
     { lable: "Home", key: "home" },
     { lable: "Expenses", key: "expenses" }
   ]
-
+  if(!token) {
+    return <LoginPage setToken={setToken} />
+  }
   return (
     <Layout>
       <Header>

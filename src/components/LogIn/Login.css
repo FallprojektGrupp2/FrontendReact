@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: 'Jost', sans-serif;
+    font-family: 'Jost', sans-serif !important;
 }
 
 #message {
@@ -51,7 +51,7 @@ input {
     background: #e0dede;
     justify-content: center;
     display: flex;
-    margin: 20px auto;
+    margin: 20px auto !important;
     padding: 10px;
     border: none;
     outline: none;
@@ -61,14 +61,14 @@ input {
 button {
     width: 60%;
     height: 40px;
-    margin: 10px auto;
+    margin: 10px auto !important;
     justify-content: center;
     display: block;
-    color: #fff;
+    color: #fff !important;
     background: rgb(40, 76, 155);
-    font-size: 1em;
+    font-size: 1em !important;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 20px !important;
     outline: none;
     border: none;
     border-radius: 5px;
