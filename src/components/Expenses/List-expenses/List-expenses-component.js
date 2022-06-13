@@ -1,30 +1,30 @@
 import { GetExpenses } from "../../../API/AxiosExpense";
 import { List } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function ListExpenses () {
 
     const [data, setdata] = useState([]);
+  
 
-    setdata(GetExpenses());
-    const expenseData = GetExpenses();
+    useEffect(() => {
+        setdata(GetExpenses());
+    })
+
+    debugger
     
-    console.log(expenseData.then((e) => {return e}))
+    if (data)
+    {
+        console.log(data)
+    }
 
     return (
         <div>
-        {/* {expenseData.map(item => {
-            return (
-               <div>{item.reciever} {item.amount} </div>
-            )
-        })}            */}
+       {data?.map((expenses)=> {
+           console.log(expenses)
+           return <div key={expenses.ExpenseId}> {expenses.comment} </div>
+       })}
+       <p>hej</p>
        </div>
-    
-    // <>
-    // <List
-    // itemLayout="horizontal"
-    // dataSource={expenseData}
-    // renderItem={(item) => (<List.Item>{item.amount}</List.Item>)}/>
-    // </>
     )
 }
