@@ -14,22 +14,19 @@ const Login = (props) => {
       userInput: username,
       password: inputpassword,
     };
-        //---------------------------------flytta->
-      fetch("https://localhost:44332/User/Login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      })
-      //<-----------------------------------------
-      .then((response) => {
-        props.setResponse(response);
-        props.setToken(credentials.userInput);
-      })
+    //---------------------------------flytta->
+    const response = await fetch("https://localhost:44332/User/Login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials),
+    });
+    //<-----------------------------------------
+    props.setResponse(response);
+    props.setToken(await response.text());
   };
 
-  //-----------------------------------------------------------------------
   return (
     <div className="login">
       <form id="loginForm" onSubmit={chklogin}>

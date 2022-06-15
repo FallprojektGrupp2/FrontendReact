@@ -1,20 +1,13 @@
 import LoginPage from './pages/Login';
 import { Link, Outlet } from "react-router-dom";
 import React, { useState } from 'react';
+import useToken from './useToken';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import 'antd/dist/antd.css';
 import Expense from "./pages/Expense";
 const { Header, Content, Footer } = Layout;
-
-function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-}
-
-function getToken() {
-}
-
 function App() {
-  const token = getToken();
+  const { token, setToken } = useToken();
   const items = [
     { lable: "Home", key: "home" },
     { lable: "Expenses", key: "expenses" }
