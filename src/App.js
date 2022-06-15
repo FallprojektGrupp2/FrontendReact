@@ -24,7 +24,6 @@ function App() {
 
           <Menu.Item key="home"> <Link to={"/home"}>Home</Link></Menu.Item>
           <Menu.Item key="expense"> <Link to={"/expense"}>Expenses</Link></Menu.Item>
-          <Menu.Item key="incomes"> <Link to={"/incomes"}>Incomes</Link></Menu.Item>
           
         </Menu>
       </Header>
