@@ -8,15 +8,9 @@
     font-family: 'Jost', sans-serif !important;
 }
 
-#message {
-    visibility: hidden;
-    margin: 10px 0px;
-    padding: 12px;
-}
-
 .main {
     width: 350px;
-    height: 580px;
+    height: 530px;
     background: linear-gradient(to bottom, rgb(40, 76, 155) 10%, rgb(143, 233, 255), rgb(238, 238, 238));
     overflow: hidden;
     border-radius: 10px;
@@ -81,11 +75,11 @@ button:hover {
 }
 
 .signup {
-    height: 540px;
+    height: 520px;
     background: rgb(238, 238, 238);
     box-shadow: 5px 20px 50px rgb(33, 88, 241);
     border-radius: 60% / 10%;
-    transform: translateY(-180px);
+    transform: translateY(-140px);
     transition: .8s ease-in-out;
 }
 
@@ -97,7 +91,7 @@ button:hover {
 }
 
 #chk:checked~.signup {
-    transform: translateY(-560px);
+    transform: translateY(-520px);
 }
 
 #chk:checked~.signup label {
