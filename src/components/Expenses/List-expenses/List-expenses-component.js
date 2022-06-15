@@ -9,24 +9,22 @@ export function ListExpenses () {
     
     useEffect(() => {
      let mydata = (GetExpenses())
-     .then(mydata => setdata(mydata))
+     .then(mydata => setdata(mydata)) 
+     
+     
     },[])
 
-    if (data)
-    {
-        
-    }
-
-  
+ 
 
     return (
         <div>
        {data.map((expenses)=> {
-           console.log(expenses)
-           return <div key={expenses.ExpenseId}> {expenses.comment} </div>
+           
+           return <div key={expenses.ExpenseId}> Amount: {expenses.amount} --- Reviever: {expenses.receiver}
+          --- Time: {expenses.timeStamp} --- Comment: {expenses.comment} --- Category: {expenses.categoryName} </div>
        })}
      
-      <p>hej</p>
+     
        </div>
     )
 }
