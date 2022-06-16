@@ -1,12 +1,13 @@
 import { GetExpenses } from "../../../API/AxiosExpense";
 import { useEffect, useState } from "react";
 import 'antd/dist/antd.css';
-import {  Button, Space, Table } from "antd";
+import { Space, Table } from "antd";
 
 
-export function ListExpenses () {
 
-    const [data, setdata] = useState([]);
+export function ListExpenses() {
+
+  const [data, setdata] = useState([]);
 
     useEffect(() => {
      let mydata = (GetExpenses())
@@ -125,3 +126,4 @@ export function ListExpenses () {
           );
     };
   
+
