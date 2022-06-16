@@ -1,7 +1,8 @@
 import { GetExpenses } from "../../../API/AxiosExpense";
 import { useEffect, useState } from "react";
-import { Table } from 'antd';
+import { Table, Space } from 'antd';
 import 'antd/dist/antd.css';
+import moment, { Moment } from 'moment';
 
 export function ListExpenses() {
 
@@ -11,9 +12,8 @@ export function ListExpenses() {
   useEffect(() => {
     let mydata = (GetExpenses())
       .then(mydata => setdata(mydata))
-
-
   }, [])
+
 
   const columns = [
     {
@@ -39,6 +39,7 @@ export function ListExpenses() {
       dataIndex: 'timeStamp',
       key: 'time',
       sorter: (a, b) => a.timeStamp - b.timeStamp,
+      
     },
     {
       title: 'Comment',
@@ -52,10 +53,16 @@ export function ListExpenses() {
       key: 'category',
       sorter: ((a, b) => a.categoryName.localeCompare(b.categoryName))
     },
+    {
+    title: "Action",
+    key: "action",
+    render: () => (
+      <Space size="middle">
+        <a>Delete</a>
+      </Space>
+    )
+    }
   ];
-
-
-  console.log(data)
 
   return (
     <div>
