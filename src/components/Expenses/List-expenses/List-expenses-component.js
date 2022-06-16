@@ -93,10 +93,6 @@ export function ListExpenses() {
               text: 'Miscellaneous',
               value: 'Miscellaneous',
             },
-            {
-              text: 'Shopping',
-              value: 'Shopping',
-            },
             
           ],
           filteredValue: filteredInfo.categoryName || null,
