@@ -1,7 +1,8 @@
 import { GetExpenses } from "../../../API/AxiosExpense";
 import { useEffect, useState } from "react";
-import { Table } from 'antd';
+import { Table, Space } from 'antd';
 import 'antd/dist/antd.css';
+import Column from "antd/lib/table/Column";
 
 export function ListExpenses () {
 
@@ -14,41 +15,30 @@ export function ListExpenses () {
      
      
     },[])
-
-    const columns = [
-        {
-          title: 'Amount',
-          dataIndex: 'amount',
-          key: 'amount',
-        },
-        {
-            title: 'Receiver',
-            dataIndex: 'receiver',
-            key: 'reciever',
-          },
-        {
-          title: 'Time',
-          dataIndex: 'timeStamp',
-          key: 'time',
-        },
-        {
-            title: 'Comment',
-            dataIndex: 'comment',
-            key: 'comment',
-          },
-        {
-          title: 'Category',
-          dataIndex: 'categoryName',
-          key: 'category',
-        },
-      ];
       
 
     console.log(data)
 
     return (
         <div>
-        <Table dataSource={data} columns={columns} />;
+        <Table dataSource={data}>
+        <Column title="Amount" dataIndex="amount" key="amount"></Column>
+        <Column title="Reciever" dataIndex="receiver" key="receiver"></Column>
+        <Column title="Time" dataIndex="timeStamp" key="time"></Column>
+        <Column title="Comment" dataIndex="comment" key="comment"></Column>
+        <Column title="Category" dataIndex="categoryName" key="category"></Column>
+        <Column
+      title="Action"
+      key="action"
+      render={(_, record) => (
+        <Space size="middle">
+          
+          <a>Delete</a>
+        </Space>
+      )}
+    />
+
+        </Table>
 
        {/* {data.map((expenses)=> {
            
