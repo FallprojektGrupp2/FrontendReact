@@ -101,7 +101,7 @@ export function ListExpenses() {
           ],
           filteredValue: filteredInfo.categoryName || null,
           onFilter: (value, record) => record.categoryName.includes(value),
-          sorter: (a, b) => a.categoryName.length - b.categoryName.length,
+          sorter: (a, b) => a.categoryName.localeCompare(b.categoryName),
           sortOrder: sortedInfo.columnKey === 'categoryName' ? sortedInfo.order : null,
           ellipsis: true,
 
