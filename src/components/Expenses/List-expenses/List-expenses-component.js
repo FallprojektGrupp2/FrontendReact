@@ -1,52 +1,65 @@
 import { GetExpenses } from "../../../API/AxiosExpense";
 import { useEffect, useState } from "react";
-import { Table, Space } from 'antd';
+import { Table } from 'antd';
 import 'antd/dist/antd.css';
-import Column from "antd/lib/table/Column";
 
-export function ListExpenses () {
+export function ListExpenses() {
 
-    const [data, setdata] = useState([]);
+  const [data, setdata] = useState([]);
 
-    
-    useEffect(() => {
-     let mydata = (GetExpenses())
-     .then(mydata => setdata(mydata)) 
-     
-     
-    },[])
-      
 
-    console.log(data)
+  useEffect(() => {
+    let mydata = (GetExpenses())
+      .then(mydata => setdata(mydata))
 
-    return (
-        <div>
-        <Table dataSource={data}>
-        <Column title="Amount" dataIndex="amount" key="amount"></Column>
-        <Column title="Reciever" dataIndex="receiver" key="receiver"></Column>
-        <Column title="Time" dataIndex="timeStamp" key="time"></Column>
-        <Column title="Comment" dataIndex="comment" key="comment"></Column>
-        <Column title="Category" dataIndex="categoryName" key="category"></Column>
-        <Column
-      title="Action"
-      key="action"
-      render={(_, record) => (
-        <Space size="middle">
-          
-          <a>Delete</a>
-        </Space>
-      )}
-    />
 
-        </Table>
+  }, [])
 
-       {/* {data.map((expenses)=> {
-           
-           return <div key={expenses.ExpenseId}> Amount: {expenses.amount} --- Reviever: {expenses.receiver}
-          --- Time: {expenses.timeStamp} --- Comment: {expenses.comment} --- Category: {expenses.categoryName} </div>
-       })}
-      */}
-     
-       </div>
-    )
+  const columns = [
+    {
+      title: '#',
+      dataIndex: 'expenseId',
+      key: 'ID',
+      sorter: (a, b) => a.expenseId - b.expenseId,
+    },
+    {
+      title: 'Amount',
+      dataIndex: 'amount',
+      key: 'amount',
+      sorter: (a, b) => a.amount - b.amount,
+    },
+    {
+      title: 'Reciever',
+      dataIndex: 'receiver',
+      key: 'reciever',
+      sorter: ((a, b) => a.receiver.localeCompare(b.receiver))
+    },
+    {
+      title: 'Time',
+      dataIndex: 'timeStamp',
+      key: 'time',
+      sorter: (a, b) => a.timeStamp - b.timeStamp,
+    },
+    {
+      title: 'Comment',
+      dataIndex: 'comment',
+      key: 'comment',
+      sorter: ((a, b) => a.comment.localeCompare(b.comment))
+    },
+    {
+      title: 'Category',
+      dataIndex: 'categoryName',
+      key: 'category',
+      sorter: ((a, b) => a.categoryName.localeCompare(b.categoryName))
+    },
+  ];
+
+
+  console.log(data)
+
+  return (
+    <div>
+      <Table dataSource={data} columns={columns} />;
+    </div>
+  )
 }
