@@ -114,6 +114,7 @@ export function ListExpenses() {
       ];
       
 
+    console.log(data)
 
     return ( 
           <Table columns={columns} dataSource={data} onChange={handleChange} />
@@ -121,4 +122,3 @@ export function ListExpenses() {
           );
     };
   
-
