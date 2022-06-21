@@ -5,7 +5,7 @@ import App from './App';
 import Expense from "./pages/Expense";
 import Home from "./pages/Home"
 import reportWebVitals from './reportWebVitals';
-
+import LoginPage from "./pages/Login";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
