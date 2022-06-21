@@ -8,12 +8,19 @@ const LoginPage = (props) => {
   const [token, setToken] = useState();
   const [response, setResponse] = useState({});
   
-  if (response.status !== undefined) {
-    if (response.status === 200)
-      setTimeout(() => {
-        props.setToken(token);
-      }, 2000);
-  }
+  useEffect (() => {
+
+    if (response.status !== undefined) {
+      if (response.status === 200)
+        setTimeout(() => {
+          if(props.setToken)
+          {
+            props.setToken(token);
+          }
+        }, 2000);
+    }
+  }, [response, token])  
+  
   return (
     <div className="body">
       <div className="main">

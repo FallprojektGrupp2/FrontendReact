@@ -5,6 +5,7 @@ import useToken from './useToken';
 import { Layout, Menu, Breadcrumb,Button } from 'antd';
 import 'antd/dist/antd.css';
 import Expense from "./pages/Expense";
+import { locale } from 'moment';
 const { Header, Content, Footer } = Layout;
 function App() {
   let navigate = useNavigate();
@@ -18,7 +19,8 @@ function App() {
   }
   const logOut = () => {
     localStorage.removeItem("token");
-    navigate("/login");
+    navigate("/");
+    window.location.reload();
   };
 
   return (
