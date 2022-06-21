@@ -1,5 +1,13 @@
 .budgetDiagramDiv {
-    margin: 30px;
     justify-self: center;
     display: block;
+}
+
+.monthlyBudgetDiv {
+    text-align: center;
+}
+
+.game-cell {
+    width: 600px;
+
 }
