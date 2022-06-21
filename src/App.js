@@ -28,11 +28,12 @@ function App() {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={['expense']}>
+          >
 
           <Menu.Item key="home"> <Link to={"/Home"}>Home</Link></Menu.Item>
           <Menu.Item key="expense"> <Link to={"/Expense"}>Expenses</Link></Menu.Item>
-           {token && (<Menu.Item key="logoout" onClick={logOut}>LogOut</Menu.Item>)}</Menu>
+           {token && (<Menu.Item key="logoout" onClick={logOut}>LogOut</Menu.Item>)}
+           </Menu>
 
       </Header>
       {/* LÄGG IN FUNKTION FÖR INLOGGAD/EJ INLOGGAD ---- VISA OLIKA KOMPONENTER  */}
