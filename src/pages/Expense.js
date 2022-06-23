@@ -3,10 +3,10 @@ import { ListExpenses } from "../components/Expenses/List-expenses/List-expenses
 
 const Expense = () => {
     return (
-    <div>
-        <ListExpenses/>
-    <h1>Expenses</h1>
-    </div>
+        <div>
+            <ListExpenses />
+            <h1>Expenses</h1>
+        </div>
     )
 };
 

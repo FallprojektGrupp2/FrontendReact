@@ -1,8 +1,10 @@
-
+import { BudgetHistogramComponent } from "../components/Budget/Budget-diagram/budget-histogram-component";
 
 
 const Home = () => {
-    return <h1>Home</h1>;
+    return (<div>
+        <BudgetHistogramComponent />
+    </div>);
 };
 
 export default Home
