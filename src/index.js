@@ -13,8 +13,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route path="Home" element={<Home />} />
-          <Route path="Expense" element={<Expense />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/Expense" element={<Expense />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -33,7 +33,7 @@ function App() {
           mode="horizontal"
         >
 
-          <Menu.Item key="home"> <Link to={"/Home"}>Home</Link></Menu.Item>
+          <Menu.Item key="home"> <Link to={"/"}>Home</Link></Menu.Item>
           <Menu.Item key="expense"> <Link to={"/Expense"}>Expenses</Link></Menu.Item>
           {token && (<Menu.Item key="logoout" onClick={logOut}>LogOut</Menu.Item>)}
         </Menu>
