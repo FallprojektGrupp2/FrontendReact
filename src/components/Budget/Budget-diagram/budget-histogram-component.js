@@ -65,7 +65,12 @@ export const BudgetHistogramComponent = () => {
                 height="600px"
                 data={[["Categories", "Sum spent", { role: "style" }, { role: "annotation" }, "Sum left in budget"],
                 ["Food", foodBudget[1], GetColumnColors(percentage(foodBudget[1], foodBudget[0])), percentage(foodBudget[1], foodBudget[0]) + "%", foodBudget[0] - foodBudget[1]], //Categoryname, sum spent in category, status color sum spent vs maximum sum in category
-                ["Transportation", transportBudget[1], GetColumnColors(percentage(transportBudget[1], transportBudget[0])), percentage(transportBudget[1], transportBudget[0]) + "%", transportBudget[0] - transportBudget[1]],
+                ["Transportation",
+                 transportBudget[1],
+                 GetColumnColors(percentage(transportBudget[1], transportBudget[0])),
+                  percentage(transportBudget[1], transportBudget[0]) + "%",
+                   transportBudget[0] - transportBudget[1]],
+                   
                 ["Shopping", shoppingBudget[1], GetColumnColors(percentage(shoppingBudget[1], shoppingBudget[0])), percentage(shoppingBudget[1], shoppingBudget[0]) + "%", shoppingBudget[0] - shoppingBudget[1]],
                 ["Entertainment", entertainmentBudget[1], GetColumnColors(percentage(entertainmentBudget[1], entertainmentBudget[0])), percentage(entertainmentBudget[1], entertainmentBudget[0]) + "%", entertainmentBudget[0] - entertainmentBudget[1]],
                 ["Housing & Utilities", homeBudget[1], GetColumnColors(percentage(homeBudget[1], homeBudget[0])), percentage(homeBudget[1], homeBudget[0]) + "%", homeBudget[0] - homeBudget[1]],
