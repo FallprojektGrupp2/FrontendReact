@@ -1,5 +1,9 @@
 import 'antd/dist/antd.css';
 // import './index.css';
+import React, { createContext } from 'react';
+import { useState } from 'react';
+import {CreateExpense} from "../../../API/AxiosExpense";
+
 import {
   Form,
   Input,
@@ -11,28 +15,62 @@ const { TextArea } = Input;
 
 export function CreateExpenseForm () {
 
-  const handleOnSubmit = () =>{
+    const [amount,setAmount] = useState("");
+    const [receiver, setReciever] = useState("");
+    const [category, setCategory] = useState("");
+    const [date, setDate] = useState("");
+    const [comment, setComment] = useState("");
+   
+    const [formData, updateFormData] = useState([]);
+
+    const handleChange = (e) => {
+        updateFormData({
+          ...formData,
+          [e.target.name]: e.target.value.trim()
+        });
+      };
+
+    const changeAmount = (event) =>{
+        setAmount(event.target.value);
+        }
+
+    const changeReciever = (event) =>{
+            setReciever(event.target.value);
+        }
+
+    const changeCategory = (event) =>{
+            setCategory(event.target.value);
+        }
+   
     
-  }
+      const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(amount);
+        formData.amount = amount;
+        formData.receiver = receiver;
+        console.log(formData);
+        // ... submit to API or something
+        // CreateExpense(formData);
+      };
 
   return (
     <>
       <Form
       >
         <Form.Item label="Amount">
-          <Input />
+          <Input onChange={changeAmount}/>
         </Form.Item>
         <Form.Item label="Reciever">
-          <Input />
+          <Input onChange={changeReciever}/>
         </Form.Item>
         <Form.Item label="Select Category">
           <Select>
-            <Select.Option value="Food">Demo</Select.Option>
-            <Select.Option value="Transportation">Demo</Select.Option>
-            <Select.Option value="Shopping">Demo</Select.Option>
-            <Select.Option value="Entertainment">Demo</Select.Option>
-            <Select.Option value="Housing and Utilities">Demo</Select.Option>
-            <Select.Option value="Miscellaneous">Demo</Select.Option>
+            <Select.Option value="Food">Food</Select.Option>
+            <Select.Option value="Transportation">Transportation</Select.Option>
+            <Select.Option value="Shopping">Shopping</Select.Option>
+            <Select.Option value="Entertainment">Entertainment</Select.Option>
+            <Select.Option value="Housing and Utilities">Housing and Utilities</Select.Option>
+            <Select.Option value="Miscellaneous">Miscellaneous</Select.Option>
           </Select>
         </Form.Item>
         <Form.Item label="Date">
@@ -42,7 +80,7 @@ export function CreateExpenseForm () {
           <TextArea rows={4} />
         </Form.Item>
         <Form.Item>
-        <Button type="primary" htmlType="submit" onSubmit={}>
+        <Button type="primary" htmlType="submit" onClick={handleSubmit}>
           Submit
         </Button>
         </Form.Item>
