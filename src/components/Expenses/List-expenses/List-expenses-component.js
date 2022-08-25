@@ -1,8 +1,9 @@
 import { GetExpenses } from "../../../API/AxiosExpense";
 import { useEffect, useState } from "react";
 import 'antd/dist/antd.css';
-import { Space, Table, Tooltip } from "antd";
+import { Col, Row, Space, Table, Tooltip } from "antd";
 import './expense-css.css'
+import { Content } from "antd/lib/layout/layout";
 
 
 
@@ -121,7 +122,7 @@ export function ListExpenses() {
           key: "action",
           render: () => (
             <Space size="middle">
-              <a>Delete</a>
+              <button className="deleteButton">Delete</button>
             </Space>
           )
           }
@@ -131,11 +132,7 @@ export function ListExpenses() {
     console.log(data)
 
     return ( 
-          <Table columns={columns} dataSource={data} onChange={handleChange} 
-          style= {{
-            width: "60%"
-
-          }}
+          <Table columns={columns} dataSource={data} onChange={handleChange}
           expandable={{
             expandedRowRender: (record) => (
               <p

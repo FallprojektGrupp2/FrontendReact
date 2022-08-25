@@ -1,3 +1,17 @@
 .ant-table-row-expand-icon{
     background-color: #bfbfbf !important;
 }
+.title{
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+.deleteButton{
+    background-color: red !important;
+    width: auto;
+    height: auto;
+}
+.ant-table-wrapper{
+    width: 100%;
+}
+

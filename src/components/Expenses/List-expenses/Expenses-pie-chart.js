@@ -1,3 +1,4 @@
+import { Col, Row } from 'antd';
 import Chart from 'react-google-charts'
 
 
@@ -19,22 +20,19 @@ export const data = [
 
 export const options = {
     title: "Expenses",
+    chartArea: {width: '90%'},
     pieHole: 0.4,
     is3D: false,
-    colors: ["#eb2f96", "#52c41a","#096dd9","#722ed1","#bfbfbf","#fa541c","#fadb14"]
-
+    colors: ["#eb2f96", "#52c41a","#096dd9","#722ed1","#bfbfbf","#fa541c","#fadb14"],
 };
 
 export const PieChartComponent = ()=>{
     return(
-        <div>
-            <Chart chartType='PieChart'
-            width="70%"
-            height="400px"
+        <Chart className='pie-chart' chartType='PieChart'
+        width={"100%"}
+        height={"400px"}
             data={data}
             options={options}
-            />
-           
-        </div>
+        />
     )
 }

@@ -37,7 +37,7 @@ export const BudgetHistogramComponent = () => {
     return (
         <div className="budgetDiagramDiv">
             <div className="monthlyBudgetDiv">
-                <h1>Budget {months[new Date().getMonth()]}</h1>
+                <h1 className='title'>Budget {months[new Date().getMonth()]}</h1>
             </div>
             <Chart
                 chartType="ColumnChart"

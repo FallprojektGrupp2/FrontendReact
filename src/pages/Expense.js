@@ -1,13 +1,20 @@
 import { ListExpenses } from "../components/Expenses/List-expenses/List-expenses-component";
 import { PieChartComponent } from "../components/Expenses/List-expenses/Expenses-pie-chart";
+import { Col, Row } from "antd";
 
 const Expense = () => {
     return (
-        <div>
-            <h1>Expenses</h1>
+    <>
+        <h1 className="title">Expenses</h1>
+        <Row gutter={[14, 14]} justify="center">
+            <Col span={13}>
             <ListExpenses />
+            </Col>
+            <Col>
             <PieChartComponent/>
-        </div>
+            </Col>
+        </Row>
+    </>
     )
 };
 
