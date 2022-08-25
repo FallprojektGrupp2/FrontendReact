@@ -16,16 +16,16 @@ export function GetExpenses ()  {
     )
 }
 
-export function CreateExpense(data) {
+export function CreateExpense(formData) {
 
     const parsedToken = JSON.parse(localStorage.getItem('token'));
 
     const expenseForm = new FormData();
-    expenseForm.append(data.amount, "amount")
-    expenseForm.append(data.reciever, "reciever")
-    expenseForm.append(data.timeStamp, "timeStamp")
-    expenseForm.append(parsedToken, "userId")
-    expenseForm.append(data.categoryName, "categoryName")
+    expenseForm.append(formData.amount, "amount")
+    expenseForm.append(formData.reciever, "reciever")
+    expenseForm.append(formData.timeStamp, "timeStamp")
+    expenseForm.append(1, "userId")
+    expenseForm.append(formData.categoryName, "categoryName")
     
 
     return(

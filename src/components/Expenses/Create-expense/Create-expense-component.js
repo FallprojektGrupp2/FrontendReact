@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import React, { createContext } from 'react';
 import { useState } from 'react';
 import {CreateExpense} from "../../../API/AxiosExpense";
+import moment from 'moment';
 
 import {
   Form,
@@ -17,8 +18,8 @@ export function CreateExpenseForm () {
 
     const [amount,setAmount] = useState("");
     const [receiver, setReciever] = useState("");
-    const [category, setCategory] = useState("");
-    const [date, setDate] = useState("");
+    const [categoryName, setCategory] = useState("");
+    const [timeStamp, setDate] = useState("");
     const [comment, setComment] = useState("");
    
     const [formData, updateFormData] = useState([]);
@@ -38,20 +39,25 @@ export function CreateExpenseForm () {
             setReciever(event.target.value);
         }
 
-    const changeCategory = (event) =>{
-            setCategory(event.target.value);
+    const changeDate = (event) =>{
+            setDate(moment().format());
         }
-   
+
+    const changeComment = (event) =>{
+            setComment(event.target.value);
+        }
     
-      const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(amount);
         formData.amount = amount;
-        formData.receiver = receiver;
+        formData.reciever = receiver;
+        formData.comment = comment;
+        formData.timeStamp = timeStamp;
+        formData.categoryName = categoryName;
         console.log(formData);
         // ... submit to API or something
-        // CreateExpense(formData);
-      };
+        CreateExpense(formData);
+    };
 
   return (
     <>
@@ -64,7 +70,7 @@ export function CreateExpenseForm () {
           <Input onChange={changeReciever}/>
         </Form.Item>
         <Form.Item label="Select Category">
-          <Select>
+          <Select onChange={setCategory}>
             <Select.Option value="Food">Food</Select.Option>
             <Select.Option value="Transportation">Transportation</Select.Option>
             <Select.Option value="Shopping">Shopping</Select.Option>
@@ -74,10 +80,10 @@ export function CreateExpenseForm () {
           </Select>
         </Form.Item>
         <Form.Item label="Date">
-          <DatePicker />
+          <DatePicker onChange={changeDate}/>
         </Form.Item>
         <Form.Item label="Comment">
-          <TextArea rows={4} />
+          <TextArea rows={4} onChange={changeComment}/>
         </Form.Item>
         <Form.Item>
         <Button type="primary" htmlType="submit" onClick={handleSubmit}>
