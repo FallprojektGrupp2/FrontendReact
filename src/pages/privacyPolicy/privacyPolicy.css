@@ -2,3 +2,20 @@
     padding: 20px;
     background-color: white;
 }
+.PrivacyTable{
+    
+        width: 100%;
+        table-layout: auto;
+        text-align: left;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        font-size: .875em;
+        line-height: 1.7142857;
+        text-indent: 0;
+        border-color: inherit;
+        border-collapse: collapse;
+        border: 0 solid #e5e7eb;
+    }
+    
+    
+    

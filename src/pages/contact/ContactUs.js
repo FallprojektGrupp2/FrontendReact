@@ -42,45 +42,70 @@ const ContactUs = () => {
           <Input label={'Subject'}/>
           <Textarea label={'Message'}/>
           <button >Submit</button>
+          <ul class="contact-info">
+                                    
+                                    <li>
+                                        <p><strong>Alexgatan 10</strong></p>
+                                        <p>,73465, Örebro</p>
+                                    </li>
         
+                                    <li>
+                                        <p><strong>Call Us</strong></p>
+                                        <p>+46 1234 123 123</p>
+                                    </li>
+        
+                                    <li>
+                                        <p><strong>Mail Us</strong></p>
+                                        <p><a href="Johanna.support@gmail.com">Johanna.support@gmail.com</a></p>
+                                    </li>
+         
+                                </ul>
         </form>
+    
       <div className="info">
         <h1 className="question">Do you have questions? Our talented employees are ready to answer your questions every weekday</h1>
         <div className="persons">
           <div className="persons-info">
             <img src={Emma} alt=""/>
             <label>Emma</label>
+            <a href="tel:123-456-7890">CLICK TO CALL</a>
           </div>
           
           <div className="persons-info">
             <img src={Leila} alt=""/>
             <label>Leila</label>
-            <a href="tel:">0974568909</a>
+            <a href="tel:123-456-7890" >CLICK TO CALL</a>
           </div>
 
           <div className="persons-info">
             <img src={Medin} alt=""/>
             <label>Medin</label>
+            <a href="tel:123-456-7890">CLICK TO CALL</a>
           </div>
 
           <div className="persons-info">
             <img src={Penny} alt=""/>
             <label>Penny</label>
+            <a href="tel:123-456-7890">CLICK TO CALL</a>
           </div>
 
           <div className="persons-info">
             <img src={Harald} alt=""/>
             <label>Harald</label>
+            <a href="tel:123-456-7890">CLICK TO CALL</a>
           </div>
 
           <div className="persons-info">
             <img src={Yacoub} alt=""/>
             <label>Yacoub</label>
+            <a href="tel:123-456-7890">CLICK TO CALL</a>
           </div>
 
           <div className="persons-info">
             <img src={Mathias} alt=""/>
             <label>Mathias</label>
+            {/* <a href="tel:PHONE_NUM">07657568909</a> */}
+            <a href="tel:123-456-7890">CLICK TO CALL</a>
           </div>
           </div>
       </div>
