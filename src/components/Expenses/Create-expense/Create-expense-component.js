@@ -1,5 +1,5 @@
 import 'antd/dist/antd.css';
-// import './index.css';
+import '../Expenses.css';
 import React, { createContext } from 'react';
 import { useState } from 'react';
 import {CreateExpense} from "../../../API/AxiosExpense";
