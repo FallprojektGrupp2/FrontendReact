@@ -18,24 +18,31 @@ export function GetExpenses ()  {
 
 export function CreateExpense(formData) {
 
-    const parsedToken = JSON.parse(localStorage.getItem('token'));
+   debugger
 
-    const expenseForm = new FormData();
-    expenseForm.append(formData.amount, "amount")
-    expenseForm.append(formData.reciever, "reciever")
-    expenseForm.append(formData.timeStamp, "timeStamp")
-    expenseForm.append(1, "userId")
-    expenseForm.append(formData.categoryName, "categoryName")
-    
-
-    return(
-        axios({
+      axios({
             method: "post",
-            url: 'https://localhost:44332/Expense/', 
-            data: expenseForm,
+            url: 'https://localhost:44332/Expense',
+            data: {
+                "amount": formData.amount,
+                "receiver": formData.receiver,
+                "timeStamp": formData.timeStamp,
+                "comment": formData.comment,
+                "userId": formData.userId,
+                "categoryName": formData.categoryName
+              },
+            headers: { "Content-Type": "application/json" },
+            headers: {"accept": "*/*"}
         })
+        .then(function (response) {
+            alert("done!")
+            console.log(response);
+          })
+          .catch(function (response) {
+            //handle error
+            console.log(response);
+          });
 
-    )
-}
+    }
 
 

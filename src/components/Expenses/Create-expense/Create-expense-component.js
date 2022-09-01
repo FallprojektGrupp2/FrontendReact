@@ -22,14 +22,7 @@ export function CreateExpenseForm () {
     const [timeStamp, setDate] = useState("");
     const [comment, setComment] = useState("");
    
-    const [formData, updateFormData] = useState([]);
-
-    const handleChange = (e) => {
-        updateFormData({
-          ...formData,
-          [e.target.name]: e.target.value.trim()
-        });
-      };
+    const formData = [];
 
     const changeAmount = (event) =>{
         setAmount(event.target.value);
@@ -39,7 +32,7 @@ export function CreateExpenseForm () {
             setReciever(event.target.value);
         }
 
-    const changeDate = (event) =>{
+    const changeDate = () =>{
             setDate(moment().format());
         }
 
@@ -49,13 +42,12 @@ export function CreateExpenseForm () {
     
     const handleSubmit = (e) => {
         e.preventDefault()
+        formData.userId = JSON.parse(localStorage.getItem('token'));
         formData.amount = amount;
-        formData.reciever = receiver;
+        formData.receiver = receiver;
         formData.comment = comment;
         formData.timeStamp = timeStamp;
         formData.categoryName = categoryName;
-        console.log(formData);
-        // ... submit to API or something
         CreateExpense(formData);
     };
 
@@ -75,7 +67,7 @@ export function CreateExpenseForm () {
             <Select.Option value="Transportation">Transportation</Select.Option>
             <Select.Option value="Shopping">Shopping</Select.Option>
             <Select.Option value="Entertainment">Entertainment</Select.Option>
-            <Select.Option value="Housing and Utilities">Housing and Utilities</Select.Option>
+            <Select.Option value= "Housing and Utilities">Housing and Utilities</Select.Option>
             <Select.Option value="Miscellaneous">Miscellaneous</Select.Option>
           </Select>
         </Form.Item>
