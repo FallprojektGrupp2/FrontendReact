@@ -17,9 +17,7 @@ export function GetExpenses ()  {
 }
 
 export function CreateExpense(formData) {
-
-   debugger
-
+    debugger
       axios({
             method: "post",
             url: 'https://localhost:44332/Expense',
@@ -32,14 +30,15 @@ export function CreateExpense(formData) {
                 "categoryName": formData.categoryName
               },
             headers: { "Content-Type": "application/json" },
-            headers: {"accept": "*/*"}
+       
         })
         .then(function (response) {
             alert("done!")
+            window.location.reload(true);
             console.log(response);
           })
           .catch(function (response) {
-            //handle error
+            alert("there was an error, expense not created")
             console.log(response);
           });
 
