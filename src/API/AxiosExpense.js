@@ -33,7 +33,7 @@ export function CreateExpense(formData) {
        
         })
         .then(function (response) {
-            alert("done!")
+            alert("Done! - Refreshing page")
             window.location.reload(true);
             console.log(response);
           })

@@ -29,13 +29,14 @@ body{
 }
 
 .ant-form, .ant-form-horizontal{
+    width: 100px;
     float:left;
     width:30% ;
     position: relative;
     background-color:white;
     display:flex;
     flex-direction: column;
-    height:70%;
+    height:100%;
     overflow:auto; 
     padding:20px;
     margin:10px;
@@ -43,7 +44,7 @@ body{
 
 .ant-btn, .ant-btn-primary{
     display:flex;
-    width:450px;
+    width:250px;
 }
 
 .ant-col, .ant-form-item-control{
@@ -60,6 +61,11 @@ body{
     width:100%;
     height:120px;
     background-color: #001529;
+}
+
+.ant-form-item-label{
+    width: 100px;
+    height: 70px;
 }
 
 h1{
