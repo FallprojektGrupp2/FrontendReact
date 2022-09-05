@@ -17,7 +17,6 @@ export function GetExpenses ()  {
 }
 
 export function CreateExpense(formData) {
-    debugger
       axios({
             method: "post",
             url: 'https://localhost:44332/Expense',

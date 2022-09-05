@@ -53,7 +53,7 @@ export function CreateExpenseForm () {
 
   return (
     <>
-      <Form 
+      <Form className='expenseForm' 
       onFinish={handleSubmit}
       autoComplete="off"
       >

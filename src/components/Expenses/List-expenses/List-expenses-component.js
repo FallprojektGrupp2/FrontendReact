@@ -7,6 +7,10 @@ import { Space, Table } from "antd";
 
 export function ListExpenses() {
 
+  function DeleteExpense() {
+    
+  }
+
   const [data, setdata] = useState([]);
 
     useEffect(() => {
@@ -107,7 +111,7 @@ export function ListExpenses() {
           key: "action",
           render: () => (
             <Space size="middle">
-              <a>Delete</a>
+              <a onClick={DeleteExpense}>Delete</a>
             </Space>
           )
           }

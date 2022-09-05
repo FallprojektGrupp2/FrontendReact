@@ -4,7 +4,7 @@ import { CreateExpenseForm } from "../components/Expenses/Create-expense/Create-
 
 const Expense = () => {
     return (
-        <div>
+        <div className="ExpensePage">
             <h1>Expenses</h1>
             <ListExpenses />
             <CreateExpenseForm />
