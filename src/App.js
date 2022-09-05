@@ -7,7 +7,11 @@ import { Layout, Menu, Breadcrumb, Button } from 'antd';
 import 'antd/dist/antd.css';
 import Expense from "./pages/Expense";
 import { locale } from 'moment';
-const { Header, Content, Footer } = Layout;
+import FooterComponent from './components/Shared/Footer/FooterComponent';
+const { Header, Content,Footer } = Layout;
+
+
+
 function App() {
   let navigate = useNavigate();
   const { token, setToken } = useToken();
@@ -33,7 +37,7 @@ function App() {
           mode="horizontal"
         >
 
-          <Menu.Item key="home"> <Link to={"/Home"}>Home</Link></Menu.Item>
+          <Menu.Item key="home"> <Link to={"/"}>Home</Link></Menu.Item>
           <Menu.Item key="expense"> <Link to={"/Expense"}>Expenses</Link></Menu.Item>
           {token && (<Menu.Item key="logoout" onClick={logOut}>LogOut</Menu.Item>)}
         </Menu>
@@ -41,9 +45,12 @@ function App() {
       </Header>
       {/* LÄGG IN FUNKTION FÖR INLOGGAD/EJ INLOGGAD ---- VISA OLIKA KOMPONENTER  */}
       <Content>
-        <Outlet />
+      <Outlet />
       </Content>
-      <Footer>Footer</Footer>
+      <Footer>
+      <FooterComponent/>
+      </Footer>
+     
     </Layout>
 
   )
