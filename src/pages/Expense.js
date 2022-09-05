@@ -6,12 +6,12 @@ import { PieChartComponent } from "../components/Expenses/List-expenses/Expenses
 const Expense = () => {
     return (
         <>
+        <h1>Expenses</h1>
         <div className="ExpensePage">
-            <h1>Expenses</h1>
             <ListExpenses />
             <CreateExpenseForm />
         </div>
-        <div>
+        <div className="PieChart">
         <PieChartComponent/>
         </div>
         </>
