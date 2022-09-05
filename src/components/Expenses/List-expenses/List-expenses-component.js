@@ -9,6 +9,10 @@ import { Content } from "antd/lib/layout/layout";
 
 export function ListExpenses() {
 
+  function DeleteExpense() {
+    
+  }
+
   const [data, setdata] = useState([]);
 
   const testDate = (timeStamp) => {
@@ -121,7 +125,7 @@ export function ListExpenses() {
           key: "action",
           render: () => (
             <Space size="middle">
-              <button className="deleteButton">Delete</button>
+              <a onClick={DeleteExpense}>Delete</a>
             </Space>
           )
           }
