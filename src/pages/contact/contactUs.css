@@ -17,6 +17,10 @@
   width: 50%;
 }
 
+.ant-layout-content{
+  height: fit-content;
+}
+
 .persons{
   display: flex;
   flex-wrap: wrap;
