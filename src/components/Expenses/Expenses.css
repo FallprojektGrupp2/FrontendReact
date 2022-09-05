@@ -1,0 +1,91 @@
+body{
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.ant-layout-content{
+    display:flex;
+    flex-direction: row;
+    height: 100vh;
+
+}
+
+.ant-layout-header{
+    width: 100%;
+}
+
+.ant-table-wrapper{
+    width:65%;
+    margin:10px;
+    float:left;
+}
+
+.ant-form, .ant-form-horizontal{
+    float:left;
+    width:30% ;
+    background-color:white;
+    display:flex;
+    flex-direction: column;
+    overflow:auto; 
+    margin:10px;
+}
+
+.ant-btn, .ant-btn-primary{
+    display:flex;
+    width:250px;
+}
+
+
+.ant-layout-footer{
+    width:100%;
+    height:120px;
+    background-color: #001529;
+}
+
+.ant-form-item-label{
+    display:inline-block;
+    margin:10px;
+}
+
+h1{
+    margin:10px;
+}
+
+#AddExpenseTitle{
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.expenseForm label  {
+    margin: 10px
+}
+
+.expenseForm
+
+.ant-picker-header{
+    color: black
+}
+
+.ant-picker-header-super-prev-btn {
+    color: black
+}
+
+.ant-picker-date-panel span {
+    color: black
+}
+
+.ant-picker-prev-icon{
+    color: black;
+}
+
+.ant-input-number-sm, .input{
+    width: 100%;
+}
+
+.ant-pagination-item-link > * {
+    color: black;
+}
+
+#reciever{
+    height: 40px;
+}
