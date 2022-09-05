@@ -5,11 +5,14 @@ import { GetSum } from '../../../API/AxiosExpense';
 export const PieChartComponent = ()=>{
 const [category, setCategory] = useState({});
 
-const categories = GetSum()
-console.log(categories)
-categories.then((data=>{
-    setCategory(data)
-},[]))
+useEffect (()=>{
+    const categories = GetSum()
+    console.log(categories)
+    categories.then((data=>{
+        setCategory(data)
+    }))
+},[])
+
 
 const foodCategory = category.foodCategorySpent;
 const shoppingCategory = category.shoppingCategorySpent
