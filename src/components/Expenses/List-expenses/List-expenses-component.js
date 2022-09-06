@@ -1,7 +1,9 @@
 import { GetExpenses } from "../../../API/AxiosExpense";
 import { useEffect, useState } from "react";
 import 'antd/dist/antd.css';
-import { Space, Table } from "antd";
+import { Col, Row, Space, Table, Tooltip } from "antd";
+import { Content } from "antd/lib/layout/layout";
+
 
 
 
@@ -13,9 +15,35 @@ export function ListExpenses() {
 
   const [data, setdata] = useState([]);
 
+  const testDate = (timeStamp) => {
+
+
+    const date = new Date(timeStamp);
+
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    return `${year}-${month}-${day}`
+}
+
     useEffect(() => {
+     let allExpenses = []
+
      let mydata = (GetExpenses())
-     .then(mydata => setdata(mydata)) 
+     .then(mydata => {
+      mydata.forEach((expense) => {
+          allExpenses.push({
+              key: expense.expenseId,
+              amount: expense.amount,
+              categoryName: expense.categoryName,
+              comment: expense.comment,
+              receiver: expense.receiver,
+              timeStamp: testDate(expense.timeStamp),
+      
+          })
+        })
+      setdata(allExpenses)})
      
      
     },[])
@@ -29,17 +57,9 @@ export function ListExpenses() {
 
     const columns = [
       {
-        title: '#',
-        dataIndex: 'expenseId',
-        key: 'ID',
-        sorter: (a, b) => a.expenseId - b.expenseId,
-        sortOrder: sortedInfo.columnKey === 'ID' ? sortedInfo.order : null,
-        ellipsis: true,
-      },
-      {
         title: 'Amount',
         dataIndex: 'amount',
-        key: 'amount',
+        key: "amount",
         sorter: (a, b) => a.amount - b.amount,
         sortOrder: sortedInfo.columnKey === 'amount' ? sortedInfo.order : null,
         ellipsis: true,
@@ -52,6 +72,7 @@ export function ListExpenses() {
             sortOrder: sortedInfo.columnKey === 'receiver' ? sortedInfo.order : null,
             ellipsis: true,
           },
+         
         {
           title: 'Time',
           dataIndex: 'timeStamp',
@@ -59,15 +80,8 @@ export function ListExpenses() {
           sorter: (a, b) => a.timeStamp.localeCompare(b.timeStamp),
           sortOrder: sortedInfo.columnKey === 'timeStamp' ? sortedInfo.order : null,
           ellipsis: true,
+          
         },
-        {
-            title: 'Comment',
-            dataIndex: 'comment',
-            key: 'comment',
-            sorter: (a, b) => a.comment.localeCompare(b.comment),
-            sortOrder: sortedInfo.columnKey === 'comment' ? sortedInfo.order : null,
-            ellipsis: true,
-          },
         {
           title: 'Category',
           dataIndex: 'categoryName',
@@ -116,13 +130,22 @@ export function ListExpenses() {
           )
           }
       ];
-      
-
-    console.log(data)
+    
 
     return ( 
-          <Table columns={columns} dataSource={data} onChange={handleChange} />
-     
+          <Table columns={columns} dataSource={data} onChange={handleChange}
+          expandable={{
+            expandedRowRender: (record) => (
+              <p
+                style={{
+                  margin: 0,
+                }}
+              >
+                {record.comment}
+              </p>
+            ),
+          }}
+          />
           );
     };
   

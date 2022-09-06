@@ -1,6 +1,7 @@
 .budgetDiagramDiv {
     justify-self: center;
     display: block;
+    width: 1100px;
 }
 
 .monthlyBudgetDiv {
@@ -8,6 +9,6 @@
 }
 
 .game-cell {
-    width: 600px;
+    width: 200px;
 
 }

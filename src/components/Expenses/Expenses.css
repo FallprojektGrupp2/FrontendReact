@@ -3,7 +3,7 @@ body{
     width: 100vw;
 }
 
-.ant-layout-content{
+.ExpensePage{
     display:flex;
     flex-direction: row;
     height: 100vh;
@@ -81,4 +81,10 @@ h1{
 
 #reciever{
     height: 40px;
+}
+
+.PieChart{
+    display: flex;
+    flex-direction: column;
+    
 }
