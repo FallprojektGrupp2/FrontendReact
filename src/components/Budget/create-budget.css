@@ -1,0 +1,63 @@
+.budgetForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.budgetH1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.totalSumWraper{
+    display: flex;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin-top: 50px;
+}
+
+.h2budgetWrapper{
+    display: flex;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin-top: 50px;
+}
+
+
+label {
+    display: flex;
+    align-items: center;
+    color: black;
+    width: 400px;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 80px;
+    font-size: x-small;
+}
+
+.inputWrapper:nth-child(even) {
+background-color: antiquewhite;
+}
+
+
+.input-main{
+    width: 400px;
+    padding-left: 100px;
+}
+
+input{
+    font-size: large;
+    font-weight: 600;
+    height: fit-content;
+}

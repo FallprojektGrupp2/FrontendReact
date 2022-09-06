@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import useToken from './useToken';
 import { Layout, Menu, Breadcrumb, Button } from 'antd';
 import 'antd/dist/antd.css';
+
+
 import Expense from "./pages/Expense";
 import { locale } from 'moment';
 const { Header, Content, Footer } = Layout;
@@ -35,6 +37,7 @@ function App() {
 
           <Menu.Item key="home"> <Link to={"/Home"}>Home</Link></Menu.Item>
           <Menu.Item key="expense"> <Link to={"/Expense"}>Expenses</Link></Menu.Item>
+          <Menu.Item key="budgets"> <Link to={"/Budget"}>Budget</Link></Menu.Item>
           {token && (<Menu.Item key="logoout" onClick={logOut}>LogOut</Menu.Item>)}
         </Menu>
 
