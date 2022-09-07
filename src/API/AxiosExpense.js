@@ -12,7 +12,6 @@ export function GetExpenses() {
 
 export const GetSum = () => {
   const parsedToken = JSON.parse(localStorage.getItem('token'))
-  console.log('---------banan' + parsedToken)
   return axios
     .get('https://localhost:44332/Budget/' + parsedToken)
     .then(res => {
