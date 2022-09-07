@@ -125,7 +125,7 @@ export function ListExpenses() {
           key: "action",
           render: () => (
             <Space size="middle">
-              <a onClick={DeleteExpense}>Delete</a>
+              <a className="deleteButton" onClick={DeleteExpense}>Delete</a>
             </Space>
           )
           }

@@ -88,3 +88,13 @@ h1{
     flex-direction: column;
     
 }
+.ant-table-row-expand-icon{
+    background-color: #bfbfbf !important;
+}
+.deleteButton{
+    color: white;
+    text-decoration: none;
+    background-color: #ff7875 !important;
+    padding: 1px 15px 3px 15px;
+    border-radius: 10px;
+}
