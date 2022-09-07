@@ -133,7 +133,7 @@ export function ListExpenses() {
     
 
     return ( 
-          <Table columns={columns} dataSource={data} onChange={handleChange}
+      <Table style={{ height: '750px' }} size="small" columns={columns} dataSource={data} onChange={handleChange}
           expandable={{
             expandedRowRender: (record) => (
               <p

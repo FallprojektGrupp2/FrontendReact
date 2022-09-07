@@ -53,7 +53,7 @@ export function CreateExpenseForm () {
 
   return (
     <>
-      <Form className='expenseForm' 
+      <Form style={{ height: '600px' }} className='expenseForm' 
       onFinish={handleSubmit}
       autoComplete="off"
       >
