@@ -88,16 +88,16 @@ export function ListExpenses() {
           key: 'categoryName',
           filters: [
             {
+              text: 'Uncategorised',
+              value: 'Uncategorised',
+            },
+            {
               text: 'Food',
               value: 'Food',
             },
             {
-              text: 'Transportation',
-              value: 'Transportation',
-            },
-            {
-              text: 'Shopping',
-              value: 'Shopping',
+              text: 'Other',
+              value: 'Other',
             },
             {
               text: 'Entertainment',
@@ -108,8 +108,8 @@ export function ListExpenses() {
               value: 'Housing & Utilities',
             },
             {
-              text: 'Miscellaneous',
-              value: 'Miscellaneous',
+              text: 'Transportation',
+              value: 'Transportation',
             },
             
           ],
@@ -136,7 +136,7 @@ export function ListExpenses() {
       <Table style={{ height: '750px' }} size="small" columns={columns} dataSource={data} onChange={handleChange}
           expandable={{
             expandedRowRender: (record) => (
-              <p
+              <p backgroundColor="black"
                 style={{
                   margin: 0,
                 }}

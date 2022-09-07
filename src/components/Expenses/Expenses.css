@@ -6,8 +6,7 @@ body{
 .ExpensePage{
     display:flex;
     flex-direction: row;
-    height: fit-content
-
+    height: fit-content;
 }
 
 .ant-layout-header{
