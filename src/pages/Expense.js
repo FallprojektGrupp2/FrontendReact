@@ -17,17 +17,10 @@ import axios from "axios";
 
 const Expense = () => {
     const [expenses, setExpenses] = []
-    
-    let handleNewExpenseForm = () => {
-        axios.get('https://localhost:44332/Expense/'+parsedToken)            
-    .then((response) => {
-        const data = response.data;
-        return(
-            data
-        )
-    })
-    
 
+    let  handleNewExpenseForm = () => {
+         axios.get("")
+        // uppdatera statet med nya listan
     }
     return (
         <>
