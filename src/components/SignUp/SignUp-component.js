@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "../LogIn/Login.css"
+import { SyncOutlined} from '@ant-design/icons';
 
 const SignUp = (props) => {
   const [password, setPassword] = useState(true);
+  const [loading, setLoading] = useState(false);
   function PasswordShow() {
     password ? setPassword(false) : setPassword(true);
   }
@@ -22,8 +24,15 @@ const SignUp = (props) => {
       body: JSON.stringify(newUser),
     })
     //-------------------------------------
-    props.setResponse(response);
-    props.setToken(await response.text());
+    try{
+      setLoading(true)
+      props.setResponse(response);
+      props.setToken(await response.text());
+    }
+    catch{
+      setLoading(false)
+    }
+  
   };
 
   return (
@@ -36,7 +45,13 @@ const SignUp = (props) => {
             <input type="string" id="userLastname" placeholder="Lastname" maxLength="50" required/>
             <input type={password ? "password" : "text"} id="userPassword" placeholder="Password" maxLength="50" required/>
             <input type="checkbox" onClick={PasswordShow} />
-            <button  type="submit">Sign up</button>
+            <button  type="submit">
+              Sign up
+              {loading &&
+          <SyncOutlined style={
+            { display:'inline-flex', justifyContent:'center', alignItems:'center', marginLeft:'5px' }
+          } spin/>}
+              </button>
         </form>
     </div>
   )

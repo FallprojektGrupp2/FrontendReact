@@ -4,6 +4,7 @@ import React from 'react';
 import { useState } from 'react';
 import {CreateExpense} from "../../../API/AxiosExpense";
 import moment from 'moment';
+import { SyncOutlined} from '@ant-design/icons';
 
 import {
   Form,
@@ -16,6 +17,7 @@ import {
 const { TextArea } = Input;
 
 export function CreateExpenseForm () {
+    const [loading, setLoading] = useState(false);
 
     const [amount,setAmount] = useState("");
     const [receiver, setReciever] = useState("");
@@ -48,7 +50,14 @@ export function CreateExpenseForm () {
         formData.comment = comment;
         formData.timeStamp = timeStamp;
         formData.categoryName = categoryName;
-        CreateExpense(formData);
+        try{
+          setLoading(true)
+          CreateExpense(formData);
+        }
+        catch{
+          setLoading(false)
+        }
+        
     };
 
   return (
@@ -114,6 +123,10 @@ export function CreateExpenseForm () {
         <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit
+          {loading &&
+          <SyncOutlined style={
+            { display:'flex', justifyContent:'center', margin:'5px' }
+          } spin/>}
         </Button>
         </Form.Item>
       </Form>
