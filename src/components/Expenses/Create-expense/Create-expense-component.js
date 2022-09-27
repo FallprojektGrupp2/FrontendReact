@@ -98,11 +98,11 @@ export function CreateExpenseForm () {
           },
         ]}>
           <Select onChange={setCategory}>
-          <Select.Option value="Uncategorised">Uncategorised</Select.Option>
+          <Select.Option value="Shopping">Shopping</Select.Option>
             <Select.Option value="Food">Food</Select.Option>
             <Select.Option value="Transportation">Transportation</Select.Option>
             <Select.Option value="Entertainment">Entertainment</Select.Option>
-            <Select.Option value="Housing &amp; Utilities">Housing and Utilities</Select.Option>
+            <Select.Option value="Housing">Housing</Select.Option>
             <Select.Option value="Other">Other</Select.Option>
           </Select>
         </Form.Item>

@@ -16,7 +16,7 @@ export function GetExpenses ()  {
     )
 }
 
-export const GetSum = () => { 
+export const GetSumSpent = () => { 
 
   const parsedToken = JSON.parse(localStorage.getItem('token'));
 

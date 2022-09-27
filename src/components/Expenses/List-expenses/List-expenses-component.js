@@ -88,8 +88,8 @@ export function ListExpenses() {
           key: 'categoryName',
           filters: [
             {
-              text: 'Uncategorised',
-              value: 'Uncategorised',
+              text: 'Shopping',
+              value: 'Shopping',
             },
             {
               text: 'Food',
@@ -104,8 +104,8 @@ export function ListExpenses() {
               value: 'Entertainment',
             },
             {
-              text: 'Housing & Utilities',
-              value: 'Housing & Utilities',
+              text: 'Housing',
+              value: 'Housing',
             },
             {
               text: 'Transportation',

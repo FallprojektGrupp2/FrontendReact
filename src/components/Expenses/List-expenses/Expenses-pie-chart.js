@@ -14,21 +14,21 @@ useEffect (()=>{
 },[])
 
 
-const foodCategory = category.foodCategorySpent;
-const shoppingCategory = category.shoppingCategorySpent
-const transportCategory = category.transportationCategorySpent
-const entertainmentCategory = category.entertainmentCategorySpent
-const homeCategory = category.housingAndUtilitiesCategorySpent
-const uncategorised = category.uncategorisedCategorySpent;
+const food = category.foodSpent;
+const shopping = category.shoppingSpent
+const transport = category.transportationSpent
+const entertainment = category.entertainmentSpent
+const housing = category.housingSpent
+const other = category.otherSpent;
 
 const datas = [
 ["Category", "Expenses"],
-["Food", foodCategory],
-["Shopping", shoppingCategory],
-["Transport", transportCategory],
-["Entertainment", entertainmentCategory],
-["Uncategorised", uncategorised],
-["Housing & Utilities", homeCategory]
+["Food", food],
+["Shopping", shopping],
+["Transport", transport],
+["Entertainment", entertainment],
+["Uncategorised", other],
+["Housing & Utilities", housing]
 
 ]
 
