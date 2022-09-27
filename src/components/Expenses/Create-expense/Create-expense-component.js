@@ -15,7 +15,7 @@ import {
 } from 'antd';
 const { TextArea } = Input;
 
-export function CreateExpenseForm () {
+export function CreateExpenseForm ({ handleNewExpenseForm }) {
 
     const [amount,setAmount] = useState("");
     const [receiver, setReciever] = useState("");
@@ -49,6 +49,7 @@ export function CreateExpenseForm () {
         formData.timeStamp = timeStamp;
         formData.categoryName = categoryName;
         CreateExpense(formData);
+        handleNewExpenseForm();
     };
 
   return (
