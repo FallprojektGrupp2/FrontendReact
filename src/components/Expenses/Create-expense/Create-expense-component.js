@@ -16,14 +16,14 @@ import {
 } from 'antd';
 const { TextArea } = Input;
 
-export function CreateExpenseForm () {
-    const [loading, setLoading] = useState(false);
+export function CreateExpenseForm ({ handleNewExpenseForm }) {
 
     const [amount,setAmount] = useState("");
     const [receiver, setReciever] = useState("");
     const [categoryName, setCategory] = useState("");
     const [timeStamp, setDate] = useState("");
     const [comment, setComment] = useState("");
+    const [loading, setLoading] = useState(false)
    
     const formData = [];
 
@@ -53,6 +53,7 @@ export function CreateExpenseForm () {
         try{
           setLoading(true)
           CreateExpense(formData);
+          handleNewExpenseForm();
         }
         catch{
           setLoading(false)

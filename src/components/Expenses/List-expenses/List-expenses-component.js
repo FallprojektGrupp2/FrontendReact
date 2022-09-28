@@ -7,7 +7,7 @@ import { Content } from "antd/lib/layout/layout";
 
 
 
-export function ListExpenses() {
+export function ListExpenses({ expenses }) {
 
   function DeleteExpense() {
     
@@ -26,6 +26,10 @@ export function ListExpenses() {
 
     return `${year}-${month}-${day}`
 }
+
+    useEffect(() => {
+      setdata(expenses)
+    }, [expenses])
 
     useEffect(() => {
      let allExpenses = []

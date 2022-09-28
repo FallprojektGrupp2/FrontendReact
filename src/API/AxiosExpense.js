@@ -30,8 +30,8 @@ export const GetSumSpent = () => {
 }
 
 
-export function CreateExpense(formData) {
-      axios({
+export const CreateExpense = async (formData) => {
+      await axios({
             method: "post",
             url: 'https://localhost:44332/Expense',
             data: {
@@ -43,18 +43,7 @@ export function CreateExpense(formData) {
                 "categoryName": formData.categoryName
               },
             headers: { "Content-Type": "application/json" },
-       
         })
-        .then(function (response) {
-            alert("Done! - Refreshing page")
-            window.location.reload(true);
-            console.log(response);
-          })
-          .catch(function (response) {
-            alert("there was an error, expense not created")
-            console.log(response);
-          });
-
     }
 
 
