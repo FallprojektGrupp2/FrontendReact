@@ -1,0 +1,107 @@
+body{
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.ExpensePage{
+    display:flex;
+    flex-direction: row;
+    height: fit-content;
+}
+
+.ant-layout-header{
+    width: 100%;
+}
+
+.ant-table-wrapper{
+    width:65%;
+    margin:10px;
+    float:left;
+    height: 200px;
+}
+
+.ant-form, .ant-form-horizontal{
+    float:left;
+    width:30% ;
+    background-color:white;
+    display:flex;
+    flex-direction: column;
+    overflow:auto; 
+    margin:10px;
+}
+
+.ant-btn, .ant-btn-primary{
+    display:flex;
+    width:250px;
+}
+
+.ant-form-item-label{
+    display:inline-block;
+    margin:15px 15px 15px 0px;
+    width: 80px;
+}
+
+h1{
+    margin:10px;
+}
+
+#AddExpenseTitle{
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.expenseForm label  {
+    margin: 10px
+}
+
+
+.ant-picker-header{
+    color: black
+}
+
+.ant-picker-header-super-prev-btn {
+    color: black
+}
+
+.ant-picker-date-panel span {
+    color: black
+}
+
+.ant-picker-prev-icon{
+    color: black;
+}
+
+.ant-row, .ant-form-item{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+
+}
+
+.ant-input-number-sm, .input{
+    width: 100%;
+}
+
+.ant-pagination-item-link > * {
+    color: black;
+}
+
+#reciever{
+    height: 40px;
+}
+
+.PieChart{
+    display: flex;
+    flex-direction: column;
+    
+}
+.ant-table-row-expand-icon{
+    background-color: #bfbfbf !important;
+}
+.deleteButton{
+    color: white;
+    text-decoration: none;
+    background-color: #ff7875 !important;
+    padding: 1px 15px 3px 15px;
+    border-radius: 10px;
+}
