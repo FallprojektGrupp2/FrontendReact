@@ -50,14 +50,9 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
         formData.comment = comment;
         formData.timeStamp = timeStamp;
         formData.categoryName = categoryName;
-        try{
-          setLoading(true)
+
           CreateExpense(formData);
           handleNewExpenseForm();
-        }
-        catch{
-          setLoading(false)
-        }
         
     };
 
