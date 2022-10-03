@@ -4,13 +4,14 @@ import axios from "axios";
 
 export function GetExpenses ()  {
     
-    const parsedToken = JSON.parse(localStorage.getItem('token'));
+    const parsedToken = JSON.parse(localStorage.getItem('token')).replaceAll('/', '').replaceAll('"','');
     return(
-    axios.get('https://localhost:44332/Expense/'+parsedToken)            
+    axios.get('https://localhost:44332/Expense/'+parsedToken)         
     .then((response) => {
         const data = response.data;
         return(
             data
+            
         )
     })
     )
