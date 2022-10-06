@@ -50,8 +50,11 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
         formData.comment = comment;
         formData.timeStamp = timeStamp;
         formData.categoryName = categoryName;
-        CreateExpense(formData);
-        handleNewExpenseForm();
+        CreateExpense(formData)
+        .then(() => {
+
+          handleNewExpenseForm();
+        })
     };
 
   return (
