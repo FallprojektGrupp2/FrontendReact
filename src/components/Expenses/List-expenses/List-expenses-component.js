@@ -17,7 +17,7 @@ export function ListExpenses({ expenses }) {
 
   const testDate = (timeStamp) => {
 
-
+  
     const date = new Date(timeStamp);
 
     const day = date.getDate();

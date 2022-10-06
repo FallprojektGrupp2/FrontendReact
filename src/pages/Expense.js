@@ -35,9 +35,9 @@ export default function Expense() {
             <ListExpenses expenses={expenses}/>
             <CreateExpenseForm handleNewExpenseForm={HandleNewExpenseForm}/> 
         </div>
-        <div className="PieChart">
+        {/* <div className="PieChart">
         <PieChartComponent/>
-        </div>
+        </div> */}
         </>
     )
 

@@ -4,15 +4,16 @@ import axios from "axios";
 
 
 export function GetExpenses ()  {
-    
-    const parsedToken = JSON.parse(localStorage.getItem('token'));
+  const parsedToken = JSON.parse(localStorage.getItem('token'));
+  
     return(
-    axios.get('https://localhost:44332/Expense/'+parsedToken)            
+    axios.get('https://localhost:44332/Expense/'+parsedToken)         
     .then((response) => {
       console.log("GetExpenses done")
         const data = response.data;
         return(
             data
+            
         )
     })
     )
@@ -33,7 +34,9 @@ export const GetSum = () => {
 
 
 export const CreateExpense = async (formData) => {
+  const parsedToken = JSON.parse(localStorage.getItem('token'));
       await axios({
+
               method: "post",
               url: 'https://localhost:44332/Expense',
               data: {
@@ -48,5 +51,6 @@ export const CreateExpense = async (formData) => {
             })
         }
           
+
 
 

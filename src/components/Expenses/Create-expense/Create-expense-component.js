@@ -38,10 +38,12 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
         }
 
     const changeComment = (event) =>{
+
             setComment(event.target.value);
         }
     
     const handleSubmit = () => {
+  
         formData.userId = JSON.parse(localStorage.getItem('token'));
         formData.amount = amount;
         formData.receiver = receiver;
