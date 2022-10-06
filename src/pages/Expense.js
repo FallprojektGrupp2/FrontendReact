@@ -1,9 +1,8 @@
 import { ListExpenses } from "../components/Expenses/List-expenses/List-expenses-component";
 import { CreateExpenseForm } from "../components/Expenses/Create-expense/Create-expense-component";
 import { PieChartComponent } from "../components/Expenses/List-expenses/Expenses-pie-chart";
-import axios from "axios";
 import {React, useState , useEffect, props } from 'react';
-import {CreateExpense} from "../API/AxiosExpense";
+import { GetExpenses } from "../API/AxiosExpense";
 
 //skicka event i createexpenseform
 //fetchen av listan av expenses bör ligga här
@@ -18,19 +17,14 @@ import {CreateExpense} from "../API/AxiosExpense";
 
 export default function Expense() {
     const [expenses, setExpenses] = useState([]);
-    const parsedToken = JSON.parse(localStorage.getItem('token'));
-    
     const HandleNewExpenseForm = () => {
-           axios.get('https://localhost:44332/Expense/'+parsedToken)            
-            .then((response) => {
-                const expenses = response.data;
-                
-                setExpenses(expenses)})
-            
+            GetExpenses()
+            .then((data) => {
+                setExpenses(data);            
+            })
         }
         
     useEffect(() => {
-        console.log("new expense created")
         }, [expenses]);
     
         

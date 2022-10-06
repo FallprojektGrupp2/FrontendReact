@@ -2,7 +2,7 @@ import { GetExpenses } from "../../../API/AxiosExpense";
 import { useEffect, useState } from "react";
 import 'antd/dist/antd.css';
 import { Col, Row, Space, Table, Tooltip } from "antd";
-import { Content } from "antd/lib/layout/layout";
+
 
 
 
