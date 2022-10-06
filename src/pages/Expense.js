@@ -24,7 +24,6 @@ export default function Expense() {
            axios.get('https://localhost:44332/Expense/'+parsedToken)            
             .then((response) => {
                 const expenses = response.data;
-                
                 setExpenses(expenses)})
             
         }
