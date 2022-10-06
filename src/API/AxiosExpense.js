@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 export function GetExpenses ()  {
-  const parsedToken = JSON.parse(localStorage.getItem('token')).replaceAll('/', '').replaceAll('"','');
+  const parsedToken = JSON.parse(localStorage.getItem('token'));
   
     return(
     axios.get('https://localhost:44332/Expense/'+parsedToken)         
@@ -32,7 +32,7 @@ export const GetSum = () => {
 
 
 export const CreateExpense = async (formData) => {
-  const parsedToken = JSON.parse(localStorage.getItem('token')).replaceAll('"', '').replaceAll("'",'');
+  const parsedToken = JSON.parse(localStorage.getItem('token'));
       await axios({
             method: "post",
             url: 'https://localhost:44332/Expense',
