@@ -15,7 +15,7 @@ import {
 } from 'antd';
 const { TextArea } = Input;
 
-export function CreateExpenseForm () {
+export function CreateExpenseForm ({ handleNewExpenseForm }) {
 
     const [amount,setAmount] = useState("");
     const [receiver, setReciever] = useState("");
@@ -38,22 +38,28 @@ export function CreateExpenseForm () {
         }
 
     const changeComment = (event) =>{
+
             setComment(event.target.value);
         }
     
     const handleSubmit = () => {
+  
         formData.userId = JSON.parse(localStorage.getItem('token'));
         formData.amount = amount;
         formData.receiver = receiver;
         formData.comment = comment;
         formData.timeStamp = timeStamp;
         formData.categoryName = categoryName;
-        CreateExpense(formData);
+        CreateExpense(formData)
+        .then(() => {
+
+          handleNewExpenseForm();
+        })
     };
 
   return (
     <>
-      <Form className='expenseForm' 
+      <Form style={{ height: '600px' }} className='expenseForm' 
       onFinish={handleSubmit}
       autoComplete="off"
       >
@@ -92,10 +98,9 @@ export function CreateExpenseForm () {
           <Select.Option value="Uncategorised">Uncategorised</Select.Option>
             <Select.Option value="Food">Food</Select.Option>
             <Select.Option value="Transportation">Transportation</Select.Option>
-            <Select.Option value="Shopping">Shopping</Select.Option>
             <Select.Option value="Entertainment">Entertainment</Select.Option>
             <Select.Option value="Housing &amp; Utilities">Housing and Utilities</Select.Option>
-            <Select.Option value="Miscellaneous">Miscellaneous</Select.Option>
+            <Select.Option value="Other">Other</Select.Option>
           </Select>
         </Form.Item>
         <Form.Item 

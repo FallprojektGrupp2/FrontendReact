@@ -3,10 +3,11 @@ import LoginPage from './pages/Login';
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import useToken from './useToken';
-import { Layout, Menu, Breadcrumb, Button } from 'antd';
+import {Avatar, Layout, Menu, Breadcrumb, Button } from 'antd';
 import 'antd/dist/antd.css';
 import Expense from "./pages/Expense";
 import { locale } from 'moment';
+import { UserOutlined } from '@ant-design/icons';
 import FooterComponent from './components/Shared/Footer/FooterComponent';
 const { Header, Content,Footer } = Layout;
 
@@ -36,7 +37,7 @@ function App() {
           theme="dark"
           mode="horizontal"
         >
-
+          <Menu.Item><Avatar size="large" icon={<UserOutlined/>} /></Menu.Item>
           <Menu.Item key="home"> <Link to={"/"}>Home</Link></Menu.Item>
           <Menu.Item key="expense"> <Link to={"/Expense"}>Expenses</Link></Menu.Item>
           {token && (<Menu.Item key="logoout" onClick={logOut}>LogOut</Menu.Item>)}

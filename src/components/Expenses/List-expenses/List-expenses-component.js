@@ -1,11 +1,13 @@
 import { GetExpenses } from "../../../API/AxiosExpense";
 import { useEffect, useState } from "react";
 import 'antd/dist/antd.css';
-import { Space, Table } from "antd";
+import { Col, Row, Space, Table, Tooltip } from "antd";
 
 
 
-export function ListExpenses() {
+
+
+export function ListExpenses({ expenses }) {
 
   function DeleteExpense() {
     
@@ -13,9 +15,39 @@ export function ListExpenses() {
 
   const [data, setdata] = useState([]);
 
+  const testDate = (timeStamp) => {
+
+  
+    const date = new Date(timeStamp);
+
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+
+    return `${year}-${month}-${day}`
+}
+
     useEffect(() => {
+      setdata(expenses)
+    }, [expenses])
+
+    useEffect(() => {
+     let allExpenses = []
+
      let mydata = (GetExpenses())
-     .then(mydata => setdata(mydata)) 
+     .then(mydata => {
+      mydata.forEach((expense) => {
+          allExpenses.push({
+              key: expense.expenseId,
+              amount: expense.amount,
+              categoryName: expense.categoryName,
+              comment: expense.comment,
+              receiver: expense.receiver,
+              timeStamp: testDate(expense.timeStamp),
+      
+          })
+        })
+      setdata(allExpenses)})
      
      
     },[])
@@ -29,17 +61,9 @@ export function ListExpenses() {
 
     const columns = [
       {
-        title: '#',
-        dataIndex: 'expenseId',
-        key: 'ID',
-        sorter: (a, b) => a.expenseId - b.expenseId,
-        sortOrder: sortedInfo.columnKey === 'ID' ? sortedInfo.order : null,
-        ellipsis: true,
-      },
-      {
         title: 'Amount',
         dataIndex: 'amount',
-        key: 'amount',
+        key: "amount",
         sorter: (a, b) => a.amount - b.amount,
         sortOrder: sortedInfo.columnKey === 'amount' ? sortedInfo.order : null,
         ellipsis: true,
@@ -52,6 +76,7 @@ export function ListExpenses() {
             sortOrder: sortedInfo.columnKey === 'receiver' ? sortedInfo.order : null,
             ellipsis: true,
           },
+         
         {
           title: 'Time',
           dataIndex: 'timeStamp',
@@ -59,31 +84,24 @@ export function ListExpenses() {
           sorter: (a, b) => a.timeStamp.localeCompare(b.timeStamp),
           sortOrder: sortedInfo.columnKey === 'timeStamp' ? sortedInfo.order : null,
           ellipsis: true,
+          
         },
-        {
-            title: 'Comment',
-            dataIndex: 'comment',
-            key: 'comment',
-            sorter: (a, b) => a.comment.localeCompare(b.comment),
-            sortOrder: sortedInfo.columnKey === 'comment' ? sortedInfo.order : null,
-            ellipsis: true,
-          },
         {
           title: 'Category',
           dataIndex: 'categoryName',
           key: 'categoryName',
           filters: [
             {
+              text: 'Uncategorised',
+              value: 'Uncategorised',
+            },
+            {
               text: 'Food',
               value: 'Food',
             },
             {
-              text: 'Transportation',
-              value: 'Transportation',
-            },
-            {
-              text: 'Shopping',
-              value: 'Shopping',
+              text: 'Other',
+              value: 'Other',
             },
             {
               text: 'Entertainment',
@@ -94,8 +112,8 @@ export function ListExpenses() {
               value: 'Housing & Utilities',
             },
             {
-              text: 'Miscellaneous',
-              value: 'Miscellaneous',
+              text: 'Transportation',
+              value: 'Transportation',
             },
             
           ],
@@ -111,18 +129,27 @@ export function ListExpenses() {
           key: "action",
           render: () => (
             <Space size="middle">
-              <a onClick={DeleteExpense}>Delete</a>
+              <a className="deleteButton" onClick={DeleteExpense}>Delete</a>
             </Space>
           )
           }
       ];
-      
-
-    console.log(data)
+    
 
     return ( 
-          <Table columns={columns} dataSource={data} onChange={handleChange} />
-     
+      <Table style={{ height: '750px' }} size="small" columns={columns} dataSource={data} onChange={handleChange}
+          expandable={{
+            expandedRowRender: (record) => (
+              <p backgroundColor="black"
+                style={{
+                  margin: 0,
+                }}
+              >
+                {record.comment}
+              </p>
+            ),
+          }}
+          />
           );
     };
   

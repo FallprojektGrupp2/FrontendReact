@@ -15,12 +15,21 @@ const months = ["January", "February", "March", "April", "May", "June",
 
 const columnColors = ['#1890FF', '#FF7C00', '#FF0000']
 
+const GetColumnColors = (budgetPercent) => {
+    if (budgetPercent < 50)
+        return columnColors[0]
+    else if (budgetPercent > 89)
+        return columnColors[2]
+    else
+        return columnColors[1]
+}
+
 const d = new Date();
 document.write("The current month is " + months[d.getMonth()]);
 
 const percentage = (partialValue, totalValue) => {
     const result = (100 * partialValue) / totalValue;
-    return Math.round(result).toString() + "%"
+    return Math.round(result).toString()
 }
 
 export const BudgetHistogramComponent = () => {
@@ -28,7 +37,7 @@ export const BudgetHistogramComponent = () => {
     return (
         <div className="budgetDiagramDiv">
             <div className="monthlyBudgetDiv">
-                <h1>Budget {months[new Date().getMonth()]}</h1>
+                <h1 className='title'>Budget {months[new Date().getMonth()]}</h1>
             </div>
             <Chart
                 chartType="ColumnChart"
@@ -51,16 +60,57 @@ export const BudgetHistogramComponent = () => {
                     'height': '600px',
                     'display': 'flex',
                     'justify-content': 'center',
-                    'minWidth': '1300px'
+                    'minWidth': '1000px'
                 }}
                 height="600px"
-                data={[["Categories", "Sum spent", { role: "style" }, { role: "annotation" }, "Sum left in budget"],
-                ["Food", foodBudget[1], columnColors[1], percentage(foodBudget[1], foodBudget[0]), foodBudget[0] - foodBudget[1]], //Categoryname, sum spent in category, status color sum spent vs maximum sum in category
-                ["Transportation", transportBudget[1], columnColors[2], percentage(transportBudget[1], transportBudget[0]), transportBudget[0] - transportBudget[1]],
-                ["Shopping", shoppingBudget[1], columnColors[1], percentage(shoppingBudget[1], shoppingBudget[0]), shoppingBudget[0] - shoppingBudget[1]],
-                ["Entertainment", entertainmentBudget[1], columnColors[0], percentage(entertainmentBudget[1], entertainmentBudget[0]), entertainmentBudget[0] - entertainmentBudget[1]],
-                ["Housing & Utilities", homeBudget[1], columnColors[1], percentage(homeBudget[1], homeBudget[0]), homeBudget[0] - homeBudget[1]],
-                ["Miscellaneous", otherBudget[1], columnColors[0], percentage(otherBudget[1], otherBudget[0]), otherBudget[0] - otherBudget[1]]]}
+                data={[
+                    //Columns
+                    ["Categories", "Sum spent", { role: "style" }, { role: "annotation" }, "Sum left in budget"],
+
+
+                    //Data for columns
+
+                    //FIRST COLUMN
+                    ["Food", //CategoryName
+                        foodBudget[1], // Sum spent in category
+                        GetColumnColors(percentage(foodBudget[1], foodBudget[0])), //Status color, sum spent VS maximum sum in category
+                        percentage(foodBudget[1], foodBudget[0]) + "%", // Percentage spent of maximum sum
+                        foodBudget[0] - foodBudget[1]], // Colum on top of spent-column showing how much there's left to spend in that category before spending over budget
+
+                    //SECOND COLUMN
+                    ["Transportation",
+                        transportBudget[1],
+                        GetColumnColors(percentage(transportBudget[1], transportBudget[0])),
+                        percentage(transportBudget[1], transportBudget[0]) + "%",
+                        transportBudget[0] - transportBudget[1]],
+
+                    //THIRD COLUMN
+                    ["Shopping",
+                        shoppingBudget[1],
+                        GetColumnColors(percentage(shoppingBudget[1], shoppingBudget[0])),
+                        percentage(shoppingBudget[1], shoppingBudget[0]) + "%",
+                        shoppingBudget[0] - shoppingBudget[1]],
+
+                    //FOURTH COLUMN
+                    ["Entertainment",
+                        entertainmentBudget[1],
+                        GetColumnColors(percentage(entertainmentBudget[1], entertainmentBudget[0])),
+                        percentage(entertainmentBudget[1], entertainmentBudget[0]) + "%",
+                        entertainmentBudget[0] - entertainmentBudget[1]],
+
+                    //FIFTH COLUMN
+                    ["Housing & Utilities",
+                        homeBudget[1],
+                        GetColumnColors(percentage(homeBudget[1], homeBudget[0])),
+                        percentage(homeBudget[1], homeBudget[0]) + "%",
+                        homeBudget[0] - homeBudget[1]],
+
+                    //SIXTH COLUMN
+                    ["Other",
+                        otherBudget[1],
+                        GetColumnColors(percentage(otherBudget[1], otherBudget[0])),
+                        percentage(otherBudget[1], otherBudget[0]) + "%",
+                        otherBudget[0] - otherBudget[1]]]}
             />
         </div>
     );
