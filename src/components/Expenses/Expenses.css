@@ -30,10 +30,10 @@ body{
     margin:10px;
 }
 
-.ant-btn, .ant-btn-primary{
-    display:flex;
-    width:250px;
-}
+/* .ant-btn, .ant-btn-primary{
+    display:flex; 
+    width:250px; 
+} */
 
 .ant-form-item-label{
     display:inline-block;
