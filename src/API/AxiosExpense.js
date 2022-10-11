@@ -17,6 +17,7 @@ export function GetExpenses ()  {
     )
 }
 
+
 export const GetSum = () => { 
 
   const parsedToken = JSON.parse(localStorage.getItem('token'));
@@ -48,3 +49,20 @@ export const CreateExpense = async (formData) => {
     }
 
 
+
+    
+export function DeleteExpenses (id)  {
+    
+  const parsedToken = JSON.stringify(id)
+  return(
+  axios.delete('https://localhost:44332/Expense/'+id)         
+  .then((response) => {
+    debugger
+      const data = response.data;
+      return(
+          data
+          
+      )
+  })
+  )
+}
