@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Chart from 'react-google-charts'
-import { GetSum } from '../../../API/AxiosExpense';
+import { GetSum } from '../../API/AxiosExpense';
 
 export const PieChartComponent = ()=>{
 const [category, setCategory] = useState({});
@@ -18,8 +18,8 @@ const foodCategory = category.foodCategorySpent;
 const shoppingCategory = category.shoppingCategorySpent
 const transportCategory = category.transportationCategorySpent
 const entertainmentCategory = category.entertainmentCategorySpent
-const homeCategory = category.housingAndUtilitiesCategorySpent
-const uncategorised = category.uncategorisedCategorySpent;
+const housingCategory = category.housingCategorySpent
+const otherCategory = category.otherCategorySpent;
 
 const datas = [
 ["Category", "Expenses"],
@@ -27,17 +27,17 @@ const datas = [
 ["Shopping", shoppingCategory],
 ["Transport", transportCategory],
 ["Entertainment", entertainmentCategory],
-["Uncategorised", uncategorised],
-["Housing & Utilities", homeCategory]
+["Housing", housingCategory],
+["Other", otherCategory]
 
 ]
 
 const options = {
-    title: "Expenses",
+    title: "Spent per category",
     chartArea: {width: '90%'},
     pieHole: 0.4,
     is3D: false,
-    colors: ["#eb2f96", "#52c41a","#096dd9","#722ed1","#bfbfbf","#fa541c","#fadb14"],
+    colors: ["#52c41a","#eb2f96","#096dd9","#722ed1","#fa541c","#bfbfbf"],
 };
 
 

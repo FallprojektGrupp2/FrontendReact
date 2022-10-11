@@ -9,6 +9,7 @@ import LoginPage from "./pages/Login";
 import ContactUs from "./pages/contact/ContactUs";
 import Features from './pages/features/Features';
 import PrivacyPolicy from './pages/privacyPolicy/PrivacyPolicy';
+import Statistics from './pages/Statistics';
 
 
 
@@ -20,6 +21,7 @@ root.render(
         <Route path="/" element={<App />}>
           <Route path="/" element={<Home />} />
           <Route path="/Expense" element={<Expense />} />
+          <Route path="/Statistics" element={<Statistics />} />
           <Route path="/Features" element={<Features/>}/>
           <Route path="/ContactUs"element={<ContactUs/>}/>
           <Route path="/PrivacyPolicy"element={<PrivacyPolicy/>}/>

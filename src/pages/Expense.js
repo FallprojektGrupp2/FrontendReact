@@ -1,6 +1,5 @@
 import { ListExpenses } from "../components/Expenses/List-expenses/List-expenses-component";
 import { CreateExpenseForm } from "../components/Expenses/Create-expense/Create-expense-component";
-import { PieChartComponent } from "../components/Expenses/List-expenses/Expenses-pie-chart";
 import {React, useState , useEffect, props } from 'react';
 import { GetExpenses } from "../API/AxiosExpense";
 
