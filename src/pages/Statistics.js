@@ -6,7 +6,11 @@ export default function Statistics(){
 
     return(
         <>
+        <Row justify='center'>
+        <Col>
         <h1>Statistics for expenses</h1>
+        </Col>
+        </Row>
           <Row align="top" justify='space-evenly'>
             <Col span={12}>
             <LineChartComponent/>
