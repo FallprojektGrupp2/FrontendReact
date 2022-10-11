@@ -31,10 +31,12 @@ const datas = [
 ["Other", otherCategory]
 ]
     const options = {
+        title: "Spent per category",
         legend: 'none',
         hAxis: { minValue: 0, maxValue: 9 },
         curveType: 'function',
-        pointSize: 20,
+        pointSize: 12,
+        dataOpacity: 0.7
     };
 
     return(

@@ -6,10 +6,9 @@ export default function Statistics(){
 
     return(
         <>
-          <Row justify="center" gutter={12} className="LineChart">
-            {/* <Col span={1}>
-            </Col> */}
-            <Col  span={12}>
+        <h1>Statistics for expenses</h1>
+          <Row align="top" justify='space-evenly'>
+            <Col span={12}>
             <LineChartComponent/>
             </Col>
 
