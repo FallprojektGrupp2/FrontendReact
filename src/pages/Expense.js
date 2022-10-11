@@ -2,7 +2,7 @@ import { ListExpenses } from "../components/Expenses/List-expenses/List-expenses
 import { CreateExpenseForm } from "../components/Expenses/Create-expense/Create-expense-component";
 import {React, useState , useEffect, props } from 'react';
 import { GetExpenses } from "../API/AxiosExpense";
-import { Col, Row } from "antd";
+import { Col, DatePicker, Row } from "antd";
 
 //skicka event i createexpenseform
 //fetchen av listan av expenses bör ligga här
@@ -30,7 +30,11 @@ export default function Expense() {
         
     return (
         <>
-        <h1>Expenses</h1>
+        <Row gutter={14} justify='space-evenly'>
+        <Col span={14}><h1>Expenses</h1> </Col>
+        <Col span={7}><h1>Create expense</h1></Col>
+        </Row>
+        
         <Row gutter={14} justify='space-evenly' className="ExpensePage">
             <Col span={14}>
             <ListExpenses expenses={expenses}/>

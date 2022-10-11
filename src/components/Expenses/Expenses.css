@@ -3,11 +3,11 @@
     width: 100vw;
 } */
 
-.ExpensePage{
+/* .ExpensePage{
     display:flex;
     flex-direction: row;
     height: fit-content;
-}
+} */
 
 /* .ant-layout-header{
     width: 100%;
@@ -21,7 +21,7 @@
 }
 
 .ant-form, .ant-form-horizontal{
-    /* float:left; */
+    float:left;
     height: 750px;
     background-color:white;
     display:flex;
@@ -40,10 +40,6 @@
     width: 80px;
 }
 
-h1{
-    margin:10px;
-}
-
 #AddExpenseTitle{
     margin: 0 auto;
     margin-top: 10px;
@@ -52,7 +48,6 @@ h1{
 .expenseForm label  {
     margin: 10px
 }
-
 
 .ant-picker-header{
     color: black
@@ -72,11 +67,13 @@ h1{
 
 .ant-row, .ant-form-item{
     margin: 10px;
-    /* display: flex;
-    align-items: center; */
+    padding-right: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 
-.ant-input-number-sm, .input{
+.ant-input-number, .input{
     width: 100%;
 }
 
@@ -86,10 +83,13 @@ h1{
 
 #reciever{
     height: 40px;
-} 
+}
 
 .ant-table-row-expand-icon{
     background-color: #bfbfbf !important;
+}
+.ant-picker-input{
+    height: 30px;
 }
 .deleteButton{
     color: white;
