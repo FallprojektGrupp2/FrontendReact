@@ -25,7 +25,7 @@ export const GetSum = () => {
   const parsedToken = JSON.parse(localStorage.getItem('token'));
 
   return(
-    axios.get('https://localhost:44332/Budget/'+parsedToken)
+    axios.get('https://localhost:44332/PieChart/'+parsedToken)
     .then((res )=>{
         const data = res.data;
         return data

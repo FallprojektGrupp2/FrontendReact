@@ -1,8 +1,8 @@
 import { ListExpenses } from "../components/Expenses/List-expenses/List-expenses-component";
 import { CreateExpenseForm } from "../components/Expenses/Create-expense/Create-expense-component";
-import { PieChartComponent } from "../components/Expenses/List-expenses/Expenses-pie-chart";
 import {React, useState , useEffect, props } from 'react';
 import { GetExpenses } from "../API/AxiosExpense";
+import { Col, DatePicker, Row } from "antd";
 
 //skicka event i createexpenseform
 //fetchen av listan av expenses bör ligga här
@@ -30,14 +30,19 @@ export default function Expense() {
         
     return (
         <>
-        <h1>Expenses</h1>
-        <div className="ExpensePage">
+        <Row gutter={14} justify='space-evenly'>
+        <Col span={14}><h1>Expenses</h1> </Col>
+        <Col span={7}><h1>Create expense</h1></Col>
+        </Row>
+        
+        <Row gutter={14} justify='space-evenly' className="ExpensePage">
+            <Col span={14}>
             <ListExpenses expenses={expenses}/>
+            </Col>
+            <Col span={7}>
             <CreateExpenseForm handleNewExpenseForm={HandleNewExpenseForm}/> 
-        </div>
-        {/* <div className="PieChart">
-        <PieChartComponent/>
-        </div> */}
+            </Col>
+        </Row>
         </>
     )
 

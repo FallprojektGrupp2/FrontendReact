@@ -59,7 +59,7 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
 
   return (
     <>
-      <Form style={{ height: '600px' }} className='expenseForm' 
+      <Form className='expenseForm' 
       onFinish={handleSubmit}
       autoComplete="off"
       >
@@ -73,7 +73,7 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
           },
         ]}
       >
-        <InputNumber size="small" min={0} max={99999999} onChange={changeAmount} />
+        <InputNumber  min={0} max={99999999} onChange={changeAmount} />
         </Form.Item>
         <Form.Item label="Reciever"
         name="reciever"
@@ -99,7 +99,7 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
             <Select.Option value="Food">Food</Select.Option>
             <Select.Option value="Transportation">Transportation</Select.Option>
             <Select.Option value="Entertainment">Entertainment</Select.Option>
-            <Select.Option value="Housing &amp; Utilities">Housing and Utilities</Select.Option>
+            <Select.Option value="Housing">Housing</Select.Option>
             <Select.Option value="Other">Other</Select.Option>
           </Select>
         </Form.Item>
@@ -112,7 +112,7 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
             message: 'Please enter a date',
           },
         ]}>
-          <DatePicker onChange={changeDate}/>
+          <DatePicker defaultValue={moment()} onChange={changeDate}/>
         </Form.Item>
         <Form.Item label="Comment">
           <TextArea rows={1} onChange={changeComment}/>
