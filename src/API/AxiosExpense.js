@@ -63,7 +63,6 @@ export function DeleteExpenses (id)  {
   return(
   axios.delete('https://localhost:44332/Expense/'+id)         
   .then((response) => {
-    debugger
       const data = response.data;
       return(
           data

@@ -52,9 +52,9 @@ export function ListExpenses({ expenses }) {
      
     },[])
 
-    const onClickDelete=async(id)=>{
+    const onClickDelete=(id)=>{
       let allExpenses=[];
-     const result= await DeleteExpenses (id);
+     const result= DeleteExpenses (id);
      let mydata = (GetExpenses())
      .then(mydata => {
       mydata.forEach((expense) => {
