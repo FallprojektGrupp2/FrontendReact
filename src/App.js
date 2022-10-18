@@ -40,6 +40,7 @@ function App() {
         >
           <Menu.Item><Avatar size="large" icon={<UserOutlined/>} /></Menu.Item>
           <Menu.Item key="home"> <Link to={"/"}>Home</Link></Menu.Item>
+          <Menu.Item key="budget"> <Link to= {"/Budget"}>Budget</Link></Menu.Item>
           <Menu.Item key="expense"> <Link to={"/Expense"}>Expenses</Link></Menu.Item>
           <Menu.Item key="statistics"><Link to={"/Statistics"}>Statistics</Link></Menu.Item>
           {token && (<Menu.Item key="logoout" onClick={logOut}>LogOut</Menu.Item>)}
