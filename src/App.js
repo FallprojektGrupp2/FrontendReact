@@ -18,7 +18,8 @@ function App() {
   const { token, setToken } = useToken();
   const items = [
     { lable: "Home", key: "home" },
-    { lable: "Expenses", key: "expenses" }
+    { lable: "Expenses", key: "expenses" },
+    {lable: "Statistics", key: "statistics"}
   ]
   if (!token) {
     return <LoginPage setToken={setToken} />
@@ -40,6 +41,7 @@ function App() {
           <Menu.Item><Avatar size="large" icon={<UserOutlined/>} /></Menu.Item>
           <Menu.Item key="home"> <Link to={"/"}>Home</Link></Menu.Item>
           <Menu.Item key="expense"> <Link to={"/Expense"}>Expenses</Link></Menu.Item>
+          <Menu.Item key="statistics"><Link to={"/Statistics"}>Statistics</Link></Menu.Item>
           {token && (<Menu.Item key="logoout" onClick={logOut}>LogOut</Menu.Item>)}
         </Menu>
 

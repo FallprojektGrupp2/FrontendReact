@@ -1,7 +1,9 @@
-import { GetExpenses } from "../../../API/AxiosExpense";
+import { GetExpenses,DeleteExpenses } from "../../../API/AxiosExpense";
 import { useEffect, useState } from "react";
 import 'antd/dist/antd.css';
-import { Col, Row, Space, Table, Tooltip } from "antd";
+import { Button, Col, Row, Space, Table, Tooltip } from "antd";
+import { Content } from "antd/lib/layout/layout";
+import { DeleteOutlined } from "@ant-design/icons";
 
 
 
@@ -9,9 +11,7 @@ import { Col, Row, Space, Table, Tooltip } from "antd";
 
 export function ListExpenses({ expenses }) {
 
-  function DeleteExpense() {
-    
-  }
+  
 
   const [data, setdata] = useState([]);
 
@@ -51,6 +51,27 @@ export function ListExpenses({ expenses }) {
      
      
     },[])
+
+    const onClickDelete=(id)=>{
+      let allExpenses=[];
+     const result= DeleteExpenses (id);
+     let mydata = (GetExpenses())
+     .then(mydata => {
+      mydata.forEach((expense) => {
+          allExpenses.push({
+              key: expense.expenseId,
+              amount: expense.amount,
+              categoryName: expense.categoryName,
+              comment: expense.comment,
+              receiver: expense.receiver,
+              timeStamp: testDate(expense.timeStamp),
+      
+          })
+        })
+      setdata(allExpenses)})
+
+    }
+    console.log('data',data)
         const [filteredInfo, setFilteredInfo] = useState({});
         const [sortedInfo, setSortedInfo] = useState({});
         const handleChange = (pagination, filters, sorter) => {
@@ -58,6 +79,7 @@ export function ListExpenses({ expenses }) {
             setFilteredInfo(filters);
             setSortedInfo(sorter);
     };
+
 
     const columns = [
       {
@@ -125,12 +147,13 @@ export function ListExpenses({ expenses }) {
 
         },
         {
-          title: "Action",
-          key: "action",
-          render: () => (
-            <Space size="middle">
-              <a className="deleteButton" onClick={DeleteExpense}>Delete</a>
-            </Space>
+          title: "Delete",
+          key: "Delete",
+          render: (item) => (
+            <div>
+              {/* <a className="deleteButton" onClick={DeleteExpense}>Delete</a> */}
+              <Button danger onClick={()=>onClickDelete(item.key)} type= "primary" shape= "circle" icon={<DeleteOutlined></DeleteOutlined>}></Button>
+            </div>
           )
           }
       ];
