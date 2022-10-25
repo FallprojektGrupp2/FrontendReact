@@ -1,11 +1,14 @@
-import { GetExpenses,DeleteExpenses } from "../../../API/AxiosExpense";
+import { GetExpenses,DeleteExpenses,EditExpenses } from "../../../API/AxiosExpense";
 import { useEffect, useState } from "react";
 import 'antd/dist/antd.css';
-import { Button, Col, Row, Space, Table, Tooltip } from "antd";
+import { Button, Col, DatePicker, Form, Input, InputNumber, Row, Select, Space, Table, Tooltip } from "antd";
 import { Content } from "antd/lib/layout/layout";
-import { DeleteOutlined } from "@ant-design/icons";
+import { DeleteOutlined,EditOutlined } from "@ant-design/icons";
+import { Modal } from "../../Modal/Modal";
+import TextArea from "antd/lib/input/TextArea";
+import moment from "moment";
 
-
+const { Option } = Select;
 
 
 
@@ -52,9 +55,9 @@ export function ListExpenses({ expenses }) {
      
     },[])
 
-    const onClickDelete=async(id)=>{
+    const onClickDelete=(id)=>{
       let allExpenses=[];
-     const result= await DeleteExpenses (id);
+     const result= DeleteExpenses (id);
      let mydata = (GetExpenses())
      .then(mydata => {
       mydata.forEach((expense) => {
@@ -71,7 +74,13 @@ export function ListExpenses({ expenses }) {
       setdata(allExpenses)})
 
     }
-    console.log('data',data)
+      //  -------------------------
+
+      const onClickEdit=(id)=>{
+        setOpenModal(id);
+      }
+// -----------------------
+    
         const [filteredInfo, setFilteredInfo] = useState({});
         const [sortedInfo, setSortedInfo] = useState({});
         const handleChange = (pagination, filters, sorter) => {
@@ -80,6 +89,37 @@ export function ListExpenses({ expenses }) {
             setSortedInfo(sorter);
     };
 
+
+    const [openModal, setOpenModal] = useState(false);
+    
+    const [modalData, setModalData] = useState();
+    
+
+    const handelChangeModal = (name, data) => {
+      setModalData({...modalData, [name]: data})
+    }
+
+    const handelModalSubmit = async () => {
+
+      await EditExpenses(openModal, modalData);
+      setOpenModal(false);
+      let allExpenses=[];
+      let mydata = (GetExpenses())
+     .then(mydata => {
+      mydata.forEach((expense) => {
+          allExpenses.push({
+              key: expense.expenseId,
+              amount: expense.amount,
+              categoryName: expense.categoryName,
+              comment: expense.comment,
+              receiver: expense.receiver,
+              timeStamp: testDate(expense.timeStamp),
+      
+          })
+        })
+      setdata(allExpenses)})
+    }
+    
 
     const columns = [
       {
@@ -151,16 +191,31 @@ export function ListExpenses({ expenses }) {
           key: "Delete",
           render: (item) => (
             <div>
+          
               {/* <a className="deleteButton" onClick={DeleteExpense}>Delete</a> */}
               <Button danger onClick={()=>onClickDelete(item.key)} type= "primary" shape= "circle" icon={<DeleteOutlined></DeleteOutlined>}></Button>
             </div>
           )
-          }
+          },
+
+          {
+            title: "Edit",
+            key: "Edit",
+            render: (item) => (
+              <div>
+                <Button color="#4169E1" onClick={()=>onClickEdit(item.key)} type= "primary" shape= "circle" icon={<EditOutlined />}></Button>
+              </div>
+            )
+            }
+
+
       ];
     
 
     return ( 
-      <Table style={{ height: '750px' }} size="small" columns={columns} dataSource={data} onChange={handleChange}
+      <>
+       
+         <Table style={{ height: '750px' }} size="small" columns={columns} dataSource={data} onChange={handleChange}
           expandable={{
             expandedRowRender: (record) => (
               <p backgroundColor="black"
@@ -173,6 +228,47 @@ export function ListExpenses({ expenses }) {
             ),
           }}
           />
+          <Modal open={openModal} >
+            <div style={{display: 'flex', flexDirection: 'column', gap: 8}}>
+              <h5>Edit Expenses</h5>
+        
+
+ 
+               
+                  
+             
+<div style={{display: 'flex', flexDirection: 'column', gap: 12}}>
+<Input name='amount' placeholder="Amount" onChange={e => handelChangeModal(e.target.name, e.target.value)} />
+<Input name='receiver' placeholder="Receiver" onChange={e => handelChangeModal(e.target.name, e.target.value)} />
+<Select name='category' placeholder='Category' onChange={v => handelChangeModal('categoryName', v)}>
+<Select.Option value="Uncategorised">Uncategorised</Select.Option>
+            <Select.Option value="Food">Food</Select.Option>
+            <Select.Option value="Transportation">Transportation</Select.Option>
+            <Select.Option value="Entertainment">Entertainment</Select.Option>
+            <Select.Option value="Housing">Housing</Select.Option>
+            <Select.Option value="Other">Other</Select.Option>
+    </Select>
+
+    <DatePicker placeholder="Date" onChange={e => handelChangeModal('timeStamp', moment().format())} />
+
+    <TextArea rows={3} placeholder="comment" maxLength={6}  onChange={e => handelChangeModal('comment', e.target.value)}/>
+
+</div>
+       
+      <div>
+
+      </div>
+
+<div style={{display: 'flex', gap: 16}}>
+      <Button type="primary" onClick={handelModalSubmit}>submit</Button>
+      <Button type= "primary" danger onClick={() => setOpenModal(false)}>cancel</Button>
+      </div>
+            </div>
+          </Modal>
+         
+     
+      </>
+   
           );
     };
   

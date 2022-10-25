@@ -7,6 +7,7 @@ import {Avatar, Layout, Menu} from 'antd';
 import 'antd/dist/antd.css';
 import { UserOutlined } from '@ant-design/icons';
 import FooterComponent from './components/Shared/Footer/FooterComponent';
+import { Modal } from './components/Modal/Modal';
 const { Header, Content,Footer } = Layout;
 
 
@@ -52,7 +53,7 @@ function App() {
       <Footer>
       <FooterComponent/>
       </Footer>
-     
+      
     </Layout>
 
   )

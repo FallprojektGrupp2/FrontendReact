@@ -36,7 +36,7 @@ get own finances in order. The presence of several important features in the pro
       <div class="row">
         <div class="col-md-8 col-sm-6 col-xs-12">
           <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by 
-       <a href="#"> Johanna app Team</a>.
+       <a href="#"> Johanna app Team</a>
           </p>
         </div>
 
