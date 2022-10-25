@@ -67,21 +67,27 @@ export const CreateExpense = async (formData) => {
 
 
 
-
-
-
-export function DeleteExpenses(id) {
-
+export function DeleteExpenses (id)  {
+    
   const parsedToken = JSON.stringify(id)
-  return (
-    axios.delete('https://localhost:44332/Expense/' + id)
-      .then((response) => {
-        debugger
-        const data = response.data;
-        return (
+  return(
+  axios.delete('https://localhost:44332/Expense/'+id)         
+  .then((response) => {
+      const data = response.data;
+      return(
           data
 
         )
       })
+  )
+}
+
+export function EditExpenses (id, data)  {
+    
+  return(
+  axios.put('https://localhost:44332/Expense/'+id, {...data, "userId": localStorage.getItem('token'),})         
+  .then((response) => {
+      return response;
+  })
   )
 }

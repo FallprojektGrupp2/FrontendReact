@@ -1,40 +1,26 @@
-/* body{
-    min-height: 100vh;
-    width: 100vw;
-} */
-
-/* .ExpensePage{
-    display:flex;
-    flex-direction: row;
-    height: fit-content;
-} */
-
-/* .ant-layout-header{
-    width: 100%;
-} */
 
 .ant-table-wrapper {
-    /* width:65%; */
-    /* margin:10px; */
-    /* float:left; */
-    /* height: 200px; */
+    margin-bottom:80px;
+
 }
 
 .ant-form,
 .ant-form-horizontal {
     float: left;
-    height: 750px;
+    height: 825px;
     background-color: white;
     display: flex;
     justify-content: start;
     flex-direction: column;
-    padding-right: 20px;
+    padding-right: 30px;
 }
 
-/* .ant-btn, .ant-btn-primary{
+
+
+.ant-btn, .ant-btn-primary{
     display:flex; 
-    width:250px; 
-} */
+    
+}
 
 .ant-form-item-label {
     display: inline-block;
@@ -69,7 +55,7 @@
 
 .ant-row,
 .ant-form-item {
-    margin: 10px;
+    margin: 20px;
     padding-right: 10px;
     width: 100%;
     display: flex;
@@ -103,4 +89,9 @@
     background-color: #ff7875 !important;
     padding: 1px 15px 3px 15px;
     border-radius: 10px;
+}
+
+.ant-btn-icon-only > .anticon{
+    display: inline;
+    margin-top: 3px;
 }

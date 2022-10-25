@@ -9,6 +9,7 @@ import Expense from "./pages/Expense";
 import { locale } from 'moment';
 import { UserOutlined } from '@ant-design/icons';
 import FooterComponent from './components/Shared/Footer/FooterComponent';
+import { Modal } from './components/Modal/Modal';
 const { Header, Content,Footer } = Layout;
 
 
@@ -53,7 +54,7 @@ function App() {
       <Footer>
       <FooterComponent/>
       </Footer>
-     
+      
     </Layout>
 
   )
