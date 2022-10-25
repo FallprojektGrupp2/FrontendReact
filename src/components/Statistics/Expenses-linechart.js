@@ -1,37 +1,66 @@
 import { useEffect, useState } from 'react';
 import Chart from 'react-google-charts'
-import { GetSum } from '../../API/AxiosExpense';
+import { GetSum, GetExpenses } from '../../API/AxiosExpense';
 
 export default function LineChartComponent() {
-    const [category, setCategory] = useState({});
+    const [date, setDate] = useState({});
+
+    const getMonth = (timeStamp) => {
+
+  
+        const date = new Date(timeStamp);
+    
+
+        const month = date.getMonth();
+    
+        return month
+    }
 
 useEffect (()=>{
-    const categories = GetSum()
-    console.log(categories)
-    categories.then((data=>{
-        setCategory(data)
+    let allExpenses = [];
+    let mydata = GetExpenses()
+    .then((mydata=>{
+        mydata.forEach(expense => {
+            allExpenses.push({
+                timeStamp: getMonth(expense.timeStamp),
+                amount: expense.amount
+                
+            })
+        });
     }))
 },[])
 
 
-const foodCategory = category.foodCategorySpent;
-const shoppingCategory = category.shoppingCategorySpent
-const transportCategory = category.transportationCategorySpent
-const entertainmentCategory = category.entertainmentCategorySpent
-const housingCategory = category.housingCategorySpent
-const otherCategory = category.otherCategorySpent;
+const january = date.amount;
+const february = date.amount;
+const mars = date.amount;
+const april = date.amount;
+const may = date.amount;
+const june = date.amount;
+const july = date.amount;
+const august = date.amount;
+const september = date.amount;
+const oktober = date.amount;
+const november = date.amount;
+const december = date.amount;
 
 const datas = [
 ["Category", "Expenses"],
-["Food", foodCategory],
-["Shopping", shoppingCategory],
-["Transport", transportCategory],
-["Entertainment", entertainmentCategory],
-["Housing", housingCategory],
-["Other", otherCategory]
+["January", january],
+["February", february],
+["Mars", mars],
+["April", april],
+["May", may],
+["June", june],
+["July", july],
+["August", august],
+["September", september],
+["Oktober", oktober],
+["November", november],
+["December", december]
 ]
     const options = {
-        title: "Spent per category",
+        title: "Spent this year",
         legend: 'none',
         hAxis: { minValue: 0, maxValue: 9 },
         curveType: 'function',

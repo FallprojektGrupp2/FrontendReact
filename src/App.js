@@ -1,12 +1,10 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import LoginPage from './pages/Login';
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import React, { useState } from 'react';
+import React from 'react';
 import useToken from './useToken';
-import {Avatar, Layout, Menu, Breadcrumb, Button } from 'antd';
+import {Avatar, Layout, Menu} from 'antd';
 import 'antd/dist/antd.css';
-import Expense from "./pages/Expense";
-import { locale } from 'moment';
 import { UserOutlined } from '@ant-design/icons';
 import FooterComponent from './components/Shared/Footer/FooterComponent';
 const { Header, Content,Footer } = Layout;

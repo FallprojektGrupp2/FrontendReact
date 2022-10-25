@@ -5,7 +5,6 @@ import App from './App';
 import Expense from "./pages/Expense";
 import Home from "./pages/Home"
 import reportWebVitals from './reportWebVitals';
-import LoginPage from "./pages/Login";
 import ContactUs from "./pages/contact/ContactUs";
 import Features from './pages/features/Features';
 import PrivacyPolicy from './pages/privacyPolicy/PrivacyPolicy';
