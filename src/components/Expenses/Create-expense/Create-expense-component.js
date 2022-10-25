@@ -17,6 +17,7 @@ const { TextArea } = Input;
 
 export function CreateExpenseForm ({ handleNewExpenseForm }) {
 
+    const [form] = Form.useForm();
     const [amount,setAmount] = useState("");
     const [receiver, setReciever] = useState("");
     const [categoryName, setCategory] = useState("");
@@ -54,6 +55,7 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
         .then(() => {
 
           handleNewExpenseForm();
+          form.resetFields();
         })
     };
 
@@ -61,6 +63,7 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
     <>
       <Form className='expenseForm' 
       onFinish={handleSubmit}
+      form={form}
       autoComplete="off"
       >
         <Form.Item 
@@ -114,11 +117,12 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
         ]}>
           <DatePicker defaultValue={moment()} onChange={changeDate}/>
         </Form.Item>
-        <Form.Item label="Comment">
-          <TextArea rows={1} onChange={changeComment}/>
+        <Form.Item label="Comment"
+        name="comment">
+          <TextArea onChange={changeComment}/>
         </Form.Item>
         <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" >
           Submit
         </Button>
         </Form.Item>
