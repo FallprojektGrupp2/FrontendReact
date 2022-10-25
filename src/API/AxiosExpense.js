@@ -45,6 +45,17 @@ export const GetSumSpentYearAndMonth = () => {
       })
   )
 }
+export const GetSumSpentPerMonth = () => {
+  const parsedToken = JSON.parse(localStorage.getItem('token'));
+
+  return (
+    axios.get('https://localhost:44332/SpentPerMonth/' + parsedToken)
+      .then((res) => {
+        const data = res.data;
+        return data
+      })
+  )
+}
 
 
 export const CreateExpense = async (formData) => {

@@ -1,42 +1,43 @@
 import { useEffect, useState } from 'react';
 import Chart from 'react-google-charts'
-import { GetSumSpentYearAndMonth} from '../../API/AxiosExpense';
+import { GetSumSpentPerMonth} from '../../API/AxiosExpense';
 
 export default function LineChartComponent() {
-    const [sumSpentYear, setSumSpentYear] = useState();
+    const [sumSpentYear, setSumSpentYear] = useState({});
 
 useEffect(() => {
-        const sums = GetSumSpentYearAndMonth()
+        const sums = GetSumSpentPerMonth()
         sums.then((data) => {
-            setSumSpentYear(data.spentThisYear);
+            setSumSpentYear(data);
     })
 }, [])
 
-const january = amount;
-const february = date.amount;
-const mars = date.amount;
-const april = date.amount;
-const may = date.amount;
-const june = date.amount;
-const july = date.amount;
-const august = date.amount;
-const september = date.amount;
-const oktober = date.amount;
-const november = date.amount;
-const december = date.amount;
+
+const january = sumSpentYear.sumJanuary;
+const february = sumSpentYear.sumFebruary;
+const march = sumSpentYear.sumMarch;
+const april = sumSpentYear.sumApril;
+const may = sumSpentYear.sumMay;
+const june = sumSpentYear.sumJune;
+const july = sumSpentYear.sumJuly;
+const august = sumSpentYear.sumAugust;
+const september =sumSpentYear.sumSeptember;
+const october = sumSpentYear.sumOctober;
+const november = sumSpentYear.sumNovember;
+const december = sumSpentYear.sumDecember;
 
 const datas = [
 ["Category", "Expenses"],
 ["January", january],
 ["February", february],
-["Mars", mars],
+["March", march],
 ["April", april],
 ["May", may],
 ["June", june],
 ["July", july],
 ["August", august],
 ["September", september],
-["Oktober", oktober],
+["Oktober", october],
 ["November", november],
 ["December", december]
 ]
