@@ -1,37 +1,18 @@
 import { useEffect, useState } from 'react';
 import Chart from 'react-google-charts'
-import { GetSum, GetExpenses } from '../../API/AxiosExpense';
+import { GetSumSpentYearAndMonth} from '../../API/AxiosExpense';
 
 export default function LineChartComponent() {
-    const [date, setDate] = useState({});
+    const [sumSpentYear, setSumSpentYear] = useState();
 
-    const getMonth = (timeStamp) => {
+useEffect(() => {
+        const sums = GetSumSpentYearAndMonth()
+        sums.then((data) => {
+            setSumSpentYear(data.spentThisYear);
+    })
+}, [])
 
-  
-        const date = new Date(timeStamp);
-    
-
-        const month = date.getMonth();
-    
-        return month
-    }
-
-useEffect (()=>{
-    let allExpenses = [];
-    let mydata = GetExpenses()
-    .then((mydata=>{
-        mydata.forEach(expense => {
-            allExpenses.push({
-                timeStamp: getMonth(expense.timeStamp),
-                amount: expense.amount
-                
-            })
-        });
-    }))
-},[])
-
-
-const january = date.amount;
+const january = amount;
 const february = date.amount;
 const mars = date.amount;
 const april = date.amount;
