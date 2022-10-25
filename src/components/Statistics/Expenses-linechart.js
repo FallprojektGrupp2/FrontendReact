@@ -1,37 +1,48 @@
 import { useEffect, useState } from 'react';
 import Chart from 'react-google-charts'
-import { GetSum } from '../../API/AxiosExpense';
+import { GetSumSpentPerMonth} from '../../API/AxiosExpense';
 
 export default function LineChartComponent() {
-    const [category, setCategory] = useState({});
+    const [sumSpentYear, setSumSpentYear] = useState({});
 
-useEffect (()=>{
-    const categories = GetSum()
-    console.log(categories)
-    categories.then((data=>{
-        setCategory(data)
-    }))
-},[])
+useEffect(() => {
+        const sums = GetSumSpentPerMonth()
+        sums.then((data) => {
+            setSumSpentYear(data);
+    })
+}, [])
 
 
-const foodCategory = category.foodCategorySpent;
-const shoppingCategory = category.shoppingCategorySpent
-const transportCategory = category.transportationCategorySpent
-const entertainmentCategory = category.entertainmentCategorySpent
-const housingCategory = category.housingCategorySpent
-const otherCategory = category.otherCategorySpent;
+const january = sumSpentYear.sumJanuary;
+const february = sumSpentYear.sumFebruary;
+const march = sumSpentYear.sumMarch;
+const april = sumSpentYear.sumApril;
+const may = sumSpentYear.sumMay;
+const june = sumSpentYear.sumJune;
+const july = sumSpentYear.sumJuly;
+const august = sumSpentYear.sumAugust;
+const september =sumSpentYear.sumSeptember;
+const october = sumSpentYear.sumOctober;
+const november = sumSpentYear.sumNovember;
+const december = sumSpentYear.sumDecember;
 
 const datas = [
 ["Category", "Expenses"],
-["Food", foodCategory],
-["Shopping", shoppingCategory],
-["Transport", transportCategory],
-["Entertainment", entertainmentCategory],
-["Housing", housingCategory],
-["Other", otherCategory]
+["January", january],
+["February", february],
+["March", march],
+["April", april],
+["May", may],
+["June", june],
+["July", july],
+["August", august],
+["September", september],
+["Oktober", october],
+["November", november],
+["December", december]
 ]
     const options = {
-        title: "Spent per category",
+        title: "Spent this year",
         legend: 'none',
         hAxis: { minValue: 0, maxValue: 9 },
         curveType: 'function',

@@ -5,11 +5,11 @@ import App from './App';
 import Expense from "./pages/Expense";
 import Home from "./pages/Home"
 import reportWebVitals from './reportWebVitals';
-import LoginPage from "./pages/Login";
 import ContactUs from "./pages/contact/ContactUs";
 import Features from './pages/features/Features';
 import PrivacyPolicy from './pages/privacyPolicy/PrivacyPolicy';
 import Statistics from './pages/Statistics';
+import Budget from './pages/Budget';
 
 
 
@@ -22,6 +22,7 @@ root.render(
           <Route path="/" element={<Home />} />
           <Route path="/Expense" element={<Expense />} />
           <Route path="/Statistics" element={<Statistics />} />
+          <Route path="/Budget" element={<Budget />} />
           <Route path="/Features" element={<Features/>}/>
           <Route path="/ContactUs"element={<ContactUs/>}/>
           <Route path="/PrivacyPolicy"element={<PrivacyPolicy/>}/>
