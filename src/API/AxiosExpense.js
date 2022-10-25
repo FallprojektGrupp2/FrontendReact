@@ -53,10 +53,6 @@ export const CreateExpense = async (formData) => {
         }
           
 
-
-
-
-    
 export function DeleteExpenses (id)  {
     
   const parsedToken = JSON.stringify(id)
@@ -68,6 +64,16 @@ export function DeleteExpenses (id)  {
           data
           
       )
+  })
+  )
+}
+
+export function EditExpenses (id, data)  {
+    
+  return(
+  axios.put('https://localhost:44332/Expense/'+id, {...data, "userId": localStorage.getItem('token'),})         
+  .then((response) => {
+      return response;
   })
   )
 }
