@@ -1,14 +1,13 @@
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import LoginPage from './pages/Login';
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import React, { useState } from 'react';
+import React from 'react';
 import useToken from './useToken';
-import {Avatar, Layout, Menu, Breadcrumb, Button } from 'antd';
+import {Avatar, Layout, Menu} from 'antd';
 import 'antd/dist/antd.css';
-import Expense from "./pages/Expense";
-import { locale } from 'moment';
 import { UserOutlined } from '@ant-design/icons';
 import FooterComponent from './components/Shared/Footer/FooterComponent';
+import { Modal } from './components/Modal/Modal';
 const { Header, Content,Footer } = Layout;
 
 
@@ -40,6 +39,7 @@ function App() {
         >
           <Menu.Item><Avatar size="large" icon={<UserOutlined/>} /></Menu.Item>
           <Menu.Item key="home"> <Link to={"/"}>Home</Link></Menu.Item>
+          <Menu.Item key="budget"> <Link to= {"/Budget"}>Budget</Link></Menu.Item>
           <Menu.Item key="expense"> <Link to={"/Expense"}>Expenses</Link></Menu.Item>
           <Menu.Item key="budgets"><Link to={"/Budget"}>Budgets</Link></Menu.Item>
           <Menu.Item key="statistics"><Link to={"/Statistics"}>Statistics</Link></Menu.Item>
@@ -54,7 +54,7 @@ function App() {
       <Footer>
       <FooterComponent/>
       </Footer>
-     
+      
     </Layout>
 
   )
