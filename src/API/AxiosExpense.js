@@ -52,8 +52,23 @@ export const CreateExpense = async (formData) => {
             })
         }
           
-
-
+export const PostBudget = async (formData) => {
+   const parsedToken = JSON.parse(localStorage.getItem('token'));
+      await axios({
+        
+              method: "post",
+              url: 'https://localhost:44332/Budget',
+              data: {
+                   "amount": formData.amount,
+                   "name": formData.name,
+                   "timeStamp": formData.timeStamp,
+                   "userId": formData.userId,
+                   "categoryName": formData.categoryName
+                },
+               headers: { "Content-Type": "application/json" },
+             })
+          }
+                  
 
 
     

@@ -1,8 +1,8 @@
-.budgetForm {
+.Form {
     float: right;
-    height: 1150px;
+    height: 1400px;
     width: 400px;
-    background-color: rgb(165, 154, 229);
+    background-color: white(165, 154, 229);
     display: flex;
     justify-content: start;
     flex-direction: column;
@@ -28,11 +28,9 @@
     height: 50px;
 }
 
-.labelClassBelopp{
+.budgetInputWrapperBelopp{
     color: black;
     font-size: medium;
-    margin-top: 40px;
-    margin-bottom: 20px;
 }
 
 .buttonDiv{
@@ -40,6 +38,7 @@
     margin-top: 50px;
 }
 
-.labelClassMånad {
-    height: 100px;
+
+.budgetInputWrapperSmall {
+    height: 25px;
 }
