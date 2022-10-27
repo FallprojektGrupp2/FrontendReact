@@ -13,6 +13,7 @@ import Budget from './pages/Budget';
 
 
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
