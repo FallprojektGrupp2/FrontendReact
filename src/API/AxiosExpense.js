@@ -1,3 +1,4 @@
+import { message } from "antd";
 import axios from "axios";
 
 
@@ -54,6 +55,10 @@ export const GetSumSpentPerMonth = () => {
         const data = res.data;
         return data
       })
+      .catch((error)=>{
+        message = "Could not load linechart"
+        return 
+      })
   )
 }
 
@@ -105,6 +110,9 @@ export function DeleteExpenses (id)  {
           data
 
         )
+      })
+      .catch(error=>{
+        return "Could not delete expense"
       })
   )
 }
