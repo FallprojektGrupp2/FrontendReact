@@ -18,6 +18,7 @@ const { TextArea } = Input;
 
 export function CreateExpenseForm ({ handleNewExpenseForm }) {
 
+    const [form] = Form.useForm();
     const [amount,setAmount] = useState("");
     const [receiver, setReciever] = useState("");
     const [categoryName, setCategory] = useState("");
@@ -40,26 +41,31 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
         }
 
     const changeComment = (event) =>{
+
             setComment(event.target.value);
         }
     
     const handleSubmit = () => {
+  
         formData.userId = JSON.parse(localStorage.getItem('token'));
         formData.amount = amount;
         formData.receiver = receiver;
         formData.comment = comment;
         formData.timeStamp = timeStamp;
         formData.categoryName = categoryName;
+        CreateExpense(formData)
+        .then(() => {
 
-          CreateExpense(formData);
           handleNewExpenseForm();
-        
+          form.resetFields();
+        })
     };
 
   return (
     <>
-      <Form style={{ height: '600px' }} className='expenseForm' 
+      <Form className='expenseForm' 
       onFinish={handleSubmit}
+      form={form}
       autoComplete="off"
       >
         <Form.Item 
@@ -72,7 +78,7 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
           },
         ]}
       >
-        <InputNumber size="small" min={0} max={99999999} onChange={changeAmount} />
+        <InputNumber  min={0} max={99999999} onChange={changeAmount} />
         </Form.Item>
         <Form.Item label="Reciever"
         name="reciever"
@@ -111,13 +117,14 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
             message: 'Please enter a date',
           },
         ]}>
-          <DatePicker onChange={changeDate}/>
+          <DatePicker defaultValue={moment()} onChange={changeDate}/>
         </Form.Item>
-        <Form.Item label="Comment">
-          <TextArea rows={1} onChange={changeComment}/>
+        <Form.Item label="Comment"
+        name="comment">
+          <TextArea onChange={changeComment}/>
         </Form.Item>
         <Form.Item>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" >
           Submit
           {loading &&
           <SyncOutlined style={

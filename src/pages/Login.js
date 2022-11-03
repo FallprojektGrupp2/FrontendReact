@@ -14,7 +14,7 @@ const LoginPage = (props) => {
         setTimeout(() => {
           if(props.setToken)
           {
-            props.setToken(token);
+            props.setToken(token.replaceAll("'","").replaceAll("/","").replaceAll('"',""));
           }
         }, 2000);
     }
