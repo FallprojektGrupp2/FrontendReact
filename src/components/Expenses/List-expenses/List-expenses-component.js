@@ -14,15 +14,10 @@ const { Option } = Select;
 
 export function ListExpenses({ expenses }) {
 
-  
-
   const [data, setdata] = useState([]);
 
   const testDate = (timeStamp) => {
-
-  
     const date = new Date(timeStamp);
-
     const day = date.getDate();
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
@@ -30,9 +25,7 @@ export function ListExpenses({ expenses }) {
     return `${year}-${month}-${day}`
 }
 
-    useEffect(() => {
-      setdata(expenses)
-    }, [expenses])
+ 
 
     useEffect(() => {
      let allExpenses = []
@@ -53,7 +46,7 @@ export function ListExpenses({ expenses }) {
       setdata(allExpenses)})
      
      
-    },[])
+    },[expenses])
 
     const onClickDelete=(id)=>{
       let allExpenses=[];
