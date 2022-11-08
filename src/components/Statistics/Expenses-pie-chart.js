@@ -1,16 +1,28 @@
 import { useEffect, useState } from 'react';
 import Chart from 'react-google-charts'
 import { GetSum } from '../../API/AxiosExpense';
+import { Alert } from 'antd';
+import { LoadingOutlined} from '@ant-design/icons';
 
 export const PieChartComponent = ()=>{
 const [category, setCategory] = useState({});
+const [error, setError] = useState(false)
+const [loading, setLoading] = useState(true)
 
 useEffect (()=>{
-    const categories = GetSum()
-    console.log(categories)
-    categories.then((data=>{
-        setCategory(data)
-    }))
+        const categories = GetSum()
+        categories
+        .then((data=>{
+            if(!data.ok){
+                setError(true)
+            }
+            setError(false)
+            setCategory(data)
+            setLoading(false)
+        })).catch(error=>{
+            setLoading(false)
+            setError(error.message)
+        })
 },[])
 
 
@@ -40,13 +52,22 @@ const options = {
     colors: ["#52c41a","#eb2f96","#096dd9","#722ed1","#fa541c","#bfbfbf"],
 };
 
-
     return(
-        <Chart className='pie-chart' chartType='PieChart'
+        <>
+        {loading &&
+          <LoadingOutlined style={
+            { display:'flex', justifyContent:'center', margin:'5px',fontSize: '50px' }
+          } spin/>}
+        {error && <Alert type='error'message='Error' description="Something went wrong" showIcon>{error}</Alert>}
+        <Chart 
+        className='pie-chart' 
+        chartType='PieChart'
         width={"100%"}
         height={"400px"}
             data={datas}
             options={options}
-        />
+        >
+        </Chart>
+        </>
     )
 }

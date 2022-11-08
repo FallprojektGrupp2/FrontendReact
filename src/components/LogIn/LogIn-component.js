@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Login.css";
-import { SyncOutlined} from '@ant-design/icons';
+import { LoadingOutlined} from '@ant-design/icons';
 
 const Login = (props) => {
   const [username, setUserName] = useState("");
@@ -23,17 +23,12 @@ const Login = (props) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(credentials),
-    });
+    })
     //<-----------------------------------------
-    try{
-      setLoading(true)
       props.setResponse(response);
       props.setToken(await response.text());
-    }
-    catch{
-      setLoading(false)
-    }
-   
+      setLoading(true)
+
   };
 
   return (
@@ -65,7 +60,7 @@ const Login = (props) => {
         <button id="loginSubmit" type="submit">
           Login
           {loading &&
-          <SyncOutlined style={
+          <LoadingOutlined style={
             { display:'inline-flex', justifyContent:'center', alignItems:'center', marginLeft:'5px' }
           } spin/>}
         </button>

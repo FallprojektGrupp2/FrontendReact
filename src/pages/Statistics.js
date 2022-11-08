@@ -1,5 +1,5 @@
 import { Col, Row, Divider } from "antd";
-import LineChartComponent from "../components/Statistics/Expenses-linechart";
+import { LineChartComponent } from "../components/Statistics/Expenses-linechart";
 import { PieChartComponent } from "../components/Statistics/Expenses-pie-chart";
 import { SumSpentField } from "../components/Statistics/SumSpentField";
 

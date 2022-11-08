@@ -7,6 +7,8 @@ import { DeleteOutlined,EditOutlined } from "@ant-design/icons";
 import { Modal } from "../../Modal/Modal";
 import TextArea from "antd/lib/input/TextArea";
 import moment from "moment";
+import { Alert } from 'antd';
+import { LoadingOutlined} from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -15,6 +17,8 @@ const { Option } = Select;
 export function ListExpenses({ expenses }) {
 
   const [data, setdata] = useState([]);
+  const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const testDate = (timeStamp) => {
     const date = new Date(timeStamp);
@@ -32,6 +36,9 @@ export function ListExpenses({ expenses }) {
 
      let mydata = (GetExpenses())
      .then(mydata => {
+      if(!mydata.ok){
+        setError(true)
+      }
       mydata.forEach((expense) => {
           allExpenses.push({
               key: expense.expenseId,
@@ -43,7 +50,14 @@ export function ListExpenses({ expenses }) {
       
           })
         })
+        setError(false)
+        setLoading(false)
       setdata(allExpenses)})
+      .catch(error=>{
+        setLoading(false)
+        setError(error.message)
+      })
+    
      
      
     },[expenses])
@@ -207,7 +221,11 @@ export function ListExpenses({ expenses }) {
 
     return ( 
       <>
-       
+        {loading &&
+          <LoadingOutlined style={
+            { display:'flex', justifyContent:'center', margin:'5px',fontSize: '50px' }
+          } spin/>}
+        {error && <Alert type='error'message='Error' description="Something went wrong" showIcon>{error}</Alert>}
          <Table style={{ height: '750px' }} size="small" columns={columns} dataSource={data} onChange={handleChange}
           expandable={{
             expandedRowRender: (record) => (

@@ -31,6 +31,9 @@ export const GetSum = () => {
         const data = res.data;
         return data
       })
+      .catch(error=>{
+        console.log(error.message)
+      })
   )
 }
 
@@ -54,10 +57,6 @@ export const GetSumSpentPerMonth = () => {
       .then((res) => {
         const data = res.data;
         return data
-      })
-      .catch((error)=>{
-        message = "Could not load linechart"
-        return 
       })
   )
 }
@@ -110,9 +109,6 @@ export function DeleteExpenses (id)  {
           data
 
         )
-      })
-      .catch(error=>{
-        return "Could not delete expense"
       })
   )
 }

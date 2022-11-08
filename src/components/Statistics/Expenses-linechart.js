@@ -1,15 +1,31 @@
+import { Alert } from 'antd';
 import { useEffect, useState } from 'react';
 import Chart from 'react-google-charts'
 import { GetSumSpentPerMonth} from '../../API/AxiosExpense';
+import { LoadingOutlined} from '@ant-design/icons';
 
-export default function LineChartComponent() {
+
+export const LineChartComponent = ()=> {
     const [sumSpentYear, setSumSpentYear] = useState({});
+    const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(true)
 
 useEffect(() => {
         const sums = GetSumSpentPerMonth()
-        sums.then((data) => {
+         sums
+         .then((data) => {
+            if(!data.ok){
+                setError(true)
+            }
+            setError(false)
             setSumSpentYear(data);
-    })
+            setLoading(false)
+        }).catch(error=>{
+            setError(error.message)
+            setLoading(false)
+        })
+
+       
 }, [])
 
 
@@ -50,16 +66,24 @@ const datas = [
         dataOpacity: 0.7
     };
 
+  
     return(
         <>
+         {loading &&
+          <LoadingOutlined style={
+            { display:'flex', justifyContent:'center', margin:'5px',fontSize: '50px' }
+          } spin/>}
+        {error && <Alert type='error'message='Error' description="Something went wrong" showIcon>{error}</Alert>}  
          <Chart
+         className='line-chart'
       chartType="LineChart"
-      width="100%"
-      height="400px"
-      data={datas}
-      options={options}
-    />
-        </>
+      width={"100%"}
+      height={"400px"}
+        data={datas}
+        options={options}
+    >
+    </Chart>
+    </>
     )
 
 
