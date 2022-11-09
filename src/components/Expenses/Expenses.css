@@ -1,21 +1,4 @@
 
-.ant-table-wrapper {
-    margin-bottom:80px;
-
-}
-
-.ant-form,
-.ant-form-horizontal {
-    float: left;
-    height: 825px;
-    background-color: white;
-    display: flex;
-    justify-content: start;
-    flex-direction: column;
-    padding-right: 30px;
-}
-
-
 
 .ant-btn, .ant-btn-primary{
     display:flex; 
@@ -28,10 +11,6 @@
     width: 80px;
 }
 
-#AddExpenseTitle {
-    margin: 0 auto;
-    margin-top: 10px;
-}
 
 .expenseForm label {
     margin: 10px
@@ -71,10 +50,6 @@
     color: black;
 }
 
-#reciever {
-    height: 40px;
-}
-
 .ant-table-row-expand-icon {
     background-color: #bfbfbf !important;
 }
@@ -83,15 +58,21 @@
     height: 30px;
 }
 
-.deleteButton {
-    color: white;
-    text-decoration: none;
-    background-color: #ff7875 !important;
-    padding: 1px 15px 3px 15px;
-    border-radius: 10px;
-}
-
 .ant-btn-icon-only > .anticon{
     display: inline;
     margin-top: 3px;
+}
+.table-expenses{
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 10px;
+    height: 940px;
+    background-color: white;
+}
+.expenseForm{
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 10px;
+    height: 940px;
+    background-color: white;
 }

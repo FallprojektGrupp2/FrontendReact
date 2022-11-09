@@ -30,16 +30,16 @@ export default function Expense() {
         
     return (
         <>
-        <Row gutter={14} justify='space-evenly'>
+        <Row gutter={24} justify="center">
         <Col span={14}><h1>Expenses</h1> </Col>
-        <Col span={7}><h1>Create expense</h1></Col>
+        <Col span={8}><h1>Create expense</h1></Col>
         </Row>
         
-        <Row gutter={14} justify='space-evenly' className="ExpensePage">
+        <Row gutter={24} justify="center">
             <Col span={14}>
             <ListExpenses expenses={expenses}/>
             </Col>
-            <Col span={7}>
+            <Col align='top' span={8}>
             <CreateExpenseForm handleNewExpenseForm={HandleNewExpenseForm}/> 
             </Col>
         </Row>

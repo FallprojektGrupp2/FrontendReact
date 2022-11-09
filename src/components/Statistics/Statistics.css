@@ -13,8 +13,18 @@
     height: 80px;
     align-items: center;
     margin-bottom: 7px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
 }
 
 .sumSpentFieldText {
     margin: 0px 40px 0px 40px;
 }
+/* .line-chart{
+    border: 1px solid;
+    border-radius: 20px;
+}
+.pie-chart{
+    border: 1px solid;
+    border-radius: 20px;
+} */

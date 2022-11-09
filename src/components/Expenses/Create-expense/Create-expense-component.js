@@ -117,7 +117,7 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
             message: 'Please enter a date',
           },
         ]}>
-          <DatePicker defaultValue={moment()} onChange={changeDate}/>
+          <DatePicker initialValues={moment()} onChange={changeDate}/>
         </Form.Item>
         <Form.Item label="Comment"
         name="comment">

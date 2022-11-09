@@ -1,4 +1,4 @@
-.Form {
+/* .Form {
     float: right;
     height: 1400px;
     width: 400px;
@@ -41,4 +41,14 @@
 
 .budgetInputWrapperSmall {
     height: 25px;
+} */
+.budgetForm label {
+    margin: 2px
+}
+.budgetForm{
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 10px;
+    /* height: 940px; */
+    background-color: white;
 }

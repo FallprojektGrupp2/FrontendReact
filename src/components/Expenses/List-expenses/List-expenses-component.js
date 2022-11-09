@@ -226,7 +226,7 @@ export function ListExpenses({ expenses }) {
             { display:'flex', justifyContent:'center', margin:'5px',fontSize: '50px' }
           } spin/>}
         {error && <Alert type='error'message='Error' description="Something went wrong" showIcon>{error}</Alert>}
-         <Table style={{ height: '750px' }} size="small" columns={columns} dataSource={data} onChange={handleChange}
+         <Table className="table-expenses" size="small" columns={columns} dataSource={data} onChange={handleChange}
           expandable={{
             expandedRowRender: (record) => (
               <p backgroundColor="black"
@@ -277,7 +277,6 @@ export function ListExpenses({ expenses }) {
             </div>
           </Modal>
          
-     
       </>
    
           );

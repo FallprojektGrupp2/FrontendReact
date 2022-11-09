@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './App';
+import 'antd/dist/antd.css';
 import Expense from "./pages/Expense";
 import Home from "./pages/Home"
 import reportWebVitals from './reportWebVitals';

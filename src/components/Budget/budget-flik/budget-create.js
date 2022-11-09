@@ -54,8 +54,7 @@ export function CreateBudgetForm ({ handleNewBudgetForm}) {
 
 	return  (
 		<>
-		 <Form className='expenseForm' onSubmit={handleSubmit}>
-		<div className='budgetForm'>
+		 <Form className='budgetForm'  onSubmit={handleSubmit}>
 		    <Form.Item label="Namn"
         name="namn"
         rules={[
@@ -171,8 +170,6 @@ export function CreateBudgetForm ({ handleNewBudgetForm}) {
                      Submit
                     </Button>
                     </Form.Item>
-			
-			</div>
 		</Form>
 		</>
 	);
