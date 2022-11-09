@@ -1,6 +1,4 @@
-import { BudgetHistogramComponent } from "../components/Budget/Budget-diagram/budget-histogram-component";
-import background from '../assets/waves.svg';
-import { Image } from 'antd';
+
 
 
 const Home = () => {
