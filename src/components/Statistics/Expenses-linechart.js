@@ -73,7 +73,7 @@ const datas = [
           <LoadingOutlined style={
             { display:'flex', justifyContent:'center', margin:'5px',fontSize: '50px' }
           } spin/>}
-        {error && <Alert type='error'message='Error' description="Something went wrong" showIcon>{error}</Alert>}  
+        {error && <Alert type='error'message='Error' description="Could not load data, check your internet connection" showIcon>{error}</Alert>}  
          <Chart
          className='line-chart'
       chartType="LineChart"
