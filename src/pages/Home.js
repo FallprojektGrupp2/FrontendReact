@@ -1,10 +1,13 @@
-
+import {BudgetHistogramComponent} from '../components/Budget/Budget-diagram/budget-histogram-component'
+import { Row } from 'antd';
 
 
 const Home = () => {
-    return (<div className="home-content">
-        {/* <Image src={background} style={{width: "100%"}} alt="SVG logo image"/> */}
-    </div>);
+    return (
+        <Row>
+       <BudgetHistogramComponent></BudgetHistogramComponent>
+       </Row>
+   );
 };
 
 export default Home
