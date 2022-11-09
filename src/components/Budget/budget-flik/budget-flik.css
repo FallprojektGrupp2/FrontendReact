@@ -1,14 +1,24 @@
-.Form {
+
+.ant-form,
+.ant-form-horizontal  {
     float: right;
-    height: 1400px;
-    width: 400px;
     background-color: white(165, 154, 229);
     display: flex;
     justify-content: start;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
+    margin: 30px;
+    border-style: solid;
+    border-radius: 20px;
+    padding: 10px;
+    height: 940px;
+    background-color: white;
+}
 
+.ant-form-item {
+    width: 90%;
+    display: flex;
+    align-items: center;
 }
 
 .textbudget{
@@ -34,11 +44,19 @@
 }
 
 .buttonDiv{
-    height: 100px;
-    margin-top: 50px;
+
+    margin-top: 100px;
+    border-radius: 20px;
 }
 
 
 .budgetInputWrapperSmall {
-    height: 25px;
+    height: 45px;
 }
+
+
+.ant-table-wrapper {
+    margin-bottom:80px;
+
+}
+
