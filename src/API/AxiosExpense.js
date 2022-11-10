@@ -88,15 +88,46 @@ export const PostBudget = async (formData) => {
               url: 'https://localhost:44332/Budget',
               data: {
                    "amount": formData.amount,
-                   "name": formData.name,
-                   "timeStamp": formData.timeStamp,
+                   "budgetName": formData.name,
+                   "startDate": formData.startDate,
+                   "endDate": formData.endDate,
                    "userId": formData.userId,
                    "categoryName": formData.categoryName
                 },
                headers: { "Content-Type": "application/json" },
              })
           }
-                  
+
+// export function GetBudget() {
+//    const parsedToken = JSON.parse(localStorage.getItem('token'));
+          
+//    return (
+//               axios.get('https://localhost:44332/Budget/' + parsedToken)
+//                 .then((response) => {
+//                   console.log("GetBudget done")
+//                   const data = response.data;
+//                   return (
+//                     data
+          
+//                   )
+//                 })
+//             )
+//           }
+              
+// export function DeleteBudget (id)  {
+    
+//     const parsedToken = JSON.stringify(id)
+//        return(
+//             axios.delete('https://localhost:44332/Budget/'+id)         
+//             .then((response) => {
+//                 const data = response.data;
+//                 return(
+//                     data
+          
+//                   )
+//                 })
+//             )
+//           }          
 
 export function DeleteExpenses (id)  {
     

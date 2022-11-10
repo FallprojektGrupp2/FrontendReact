@@ -17,9 +17,10 @@ const { TextArea } = Input;
 export function CreateBudgetForm ({ handleNewBudgetForm}) {
 
 	const [amount,setAmount] = useState("");
-    const [name, setName] = useState("");
+    const [budgetName, setName] = useState("");
     const [categoryName, setCategory] = useState("");
-    const [timeStamp, setDate] = useState("");
+    const [startDate,  endDate, setDate] = useState("");
+
  
    
     const formData = [];
@@ -42,8 +43,9 @@ export function CreateBudgetForm ({ handleNewBudgetForm}) {
   
         formData.userId = JSON.parse(localStorage.getItem('token'));
         formData.amount = amount;
-        formData.receiver = name;
-        formData.timeStamp = timeStamp;
+        formData.budgetName = budgetName;
+        formData.timeStamp = startDate;
+		formData.timeStamp = endDate;
         formData.categoryName = categoryName;
         PostBudget(formData)
         .then(() => {
@@ -56,7 +58,7 @@ export function CreateBudgetForm ({ handleNewBudgetForm}) {
 		<>
 		 <Form className='budgetForm'  onSubmit={handleSubmit}>
 		    <Form.Item label="Namn"
-        name="namn"
+        name="budgetNamn"
         rules={[
           {
             required: true,
@@ -80,12 +82,24 @@ export function CreateBudgetForm ({ handleNewBudgetForm}) {
 
 				
 		<Form.Item 
-        label="Datum"
-        name="timeStamp"
+        label="Start"
+        name="startDate"
         rules={[
           {
             required: true,
-            message: 'Lägg in ett datum',
+            message: 'Lägg in ett start datum',
+          },
+        ]}>
+          <DatePicker defaultValue={moment()} onChange={changeDate}/>
+        </Form.Item>
+
+		<Form.Item 
+        label="Slut"
+        name="endDate"
+        rules={[
+          {
+            required: true,
+            message: 'Lägg in ett slut datum',
           },
         ]}>
           <DatePicker defaultValue={moment()} onChange={changeDate}/>
@@ -166,7 +180,7 @@ export function CreateBudgetForm ({ handleNewBudgetForm}) {
 					</div>
           
 					<Form.Item>
-                       <Button type="primary" htmlType="submit">
+                       <Button className='buttonDiv' type="primary" htmlType="submit">
                      Submit
                     </Button>
                     </Form.Item>

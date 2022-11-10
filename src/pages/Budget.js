@@ -15,7 +15,7 @@ const Budgetss = () => {
         
         <Row gutter={24} justify="center">
             <Col span={14}>
-            List budget
+            <ListBudgets />
             </Col>
             <Col align='top' span={8}>
             <CreateBudgetForm/> 
