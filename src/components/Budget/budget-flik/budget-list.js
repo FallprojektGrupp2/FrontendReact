@@ -268,8 +268,7 @@ export function ListBudgets({ handleBudgetList}) {
 
     return ( 
       <>
-       <Form>
-         <Table style={{ width:'1000px' }} size="small"  dataSource={dataSource} columns={columns}  onChange={handleChange}
+         <Table className="table-budgets" style={{ width:'1000px' }} size="small"  dataSource={dataSource} columns={columns}  onChange={handleChange}
           expandable={{
             expandedRowRender: (record) => (
               <p backgroundColor="black"
@@ -294,7 +293,6 @@ export function ListBudgets({ handleBudgetList}) {
 
             </div>
           </Modal>
-          </Form>
      
       </>
    

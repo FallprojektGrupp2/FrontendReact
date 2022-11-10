@@ -35,7 +35,7 @@ export default function Expense() {
         <Col span={8}><h1>Create expense</h1></Col>
         </Row>
         
-        <Row gutter={24} justify="center">
+        <Row align='top' gutter={24} justify="center">
             <Col span={14}>
             <ListExpenses expenses={expenses}/>
             </Col>

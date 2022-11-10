@@ -1,6 +1,6 @@
 
 import { CreateBudgetForm } from "../components/Budget/budget-flik/budget-create";
-import { ListExpenses } from "../components/Expenses/List-expenses/List-expenses-component";
+import { ListBudgets } from "../components/Budget/budget-flik/budget-list";
 import {React, useState , useEffect, props } from 'react';
 import { GetExpenses } from "../API/AxiosExpense";
 import { Col, DatePicker, Row } from "antd";
@@ -13,11 +13,11 @@ const Budgetss = () => {
         <Col span={8}><h1>Create budget</h1></Col>
         </Row>
         
-        <Row gutter={24} justify="center">
+        <Row align='top' gutter={24} justify="center">
             <Col span={14}>
             <ListBudgets />
             </Col>
-            <Col align='top' span={8}>
+            <Col span={8}>
             <CreateBudgetForm/> 
             </Col>
         </Row>
