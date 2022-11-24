@@ -10,6 +10,8 @@ import Features from './pages/features/Features';
 import PrivacyPolicy from './pages/privacyPolicy/PrivacyPolicy';
 import Statistics from './pages/Statistics';
 import Budget from './pages/Budget';
+import Landing from './pages/Landing';
+import About from './pages/About/About';
 
 
 
@@ -20,13 +22,15 @@ root.render(
     <BrowserRouter>
       <Routes>
           <Route path="/" element={<App />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/landing" element={<Landing />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/Expense" element={<Expense />} />
           <Route path="/Statistics" element={<Statistics />} />
           <Route path="/Budget" element={<Budget />} />
           <Route path="/Features" element={<Features/>}/>
           <Route path="/ContactUs"element={<ContactUs/>}/>
           <Route path="/PrivacyPolicy"element={<PrivacyPolicy/>}/>
+          <Route path="/About"element={<About/>}/>
          
         </Route>
       </Routes>
