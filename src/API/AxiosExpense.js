@@ -7,7 +7,7 @@ export function GetExpenses() {
   const parsedToken = JSON.parse(localStorage.getItem('token'));
 
   return (
-    axios.get('https://localhost:44332/Expense/', { headers: {"Authorization" : `Bearer ${parsedToken}`} })
+    axios.get('https://localhost:44332/Expense', { headers: {"Authorization" : `Bearer ${parsedToken}`} })
     
       .then((response) => {
         console.log("GetExpenses done")
@@ -26,7 +26,7 @@ export const GetSum = () => {
   const parsedToken = JSON.parse(localStorage.getItem('token'));
 
   return (
-    axios.get('https://localhost:44332/PieChart/' + parsedToken)
+    axios.get('https://localhost:44332/PieChart', { headers: {"Authorization" : `Bearer ${parsedToken}`} })
       .then((res) => {
         const data = res.data;
         return data
@@ -39,7 +39,7 @@ export const GetSumSpentYearAndMonth = () => {
   const parsedToken = JSON.parse(localStorage.getItem('token'));
 
   return (
-    axios.get('https://localhost:44332/Expense/TotalSumsSpent/' + parsedToken)
+    axios.get('https://localhost:44332/Expense/TotalSumsSpent', { headers: {"Authorization" : `Bearer ${parsedToken}`} })
       .then((res) => {
         const data = res.data;
         return data
@@ -50,7 +50,7 @@ export const GetSumSpentPerMonth = () => {
   const parsedToken = JSON.parse(localStorage.getItem('token'));
 
   return (
-    axios.get('https://localhost:44332/SpentPerMonth/' + parsedToken)
+    axios.get('https://localhost:44332/SpentPerMonth/', { headers: {"Authorization" : `Bearer ${parsedToken}`} })
       .then((res) => {
         const data = res.data;
         return data
