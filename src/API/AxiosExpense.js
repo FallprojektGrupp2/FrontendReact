@@ -7,7 +7,8 @@ export function GetExpenses() {
   const parsedToken = JSON.parse(localStorage.getItem('token'));
 
   return (
-    axios.get('https://localhost:44332/Expense/' + parsedToken)
+    axios.get('https://localhost:44332/Expense/', { headers: {"Authorization" : `Bearer ${parsedToken}`} })
+    
       .then((response) => {
         console.log("GetExpenses done")
         const data = response.data;
@@ -69,10 +70,8 @@ export const CreateExpense = async (formData) => {
                   "receiver": formData.receiver,
                   "timeStamp": formData.timeStamp,
                   "comment": formData.comment,
-                  "userId": formData.userId,
                   "categoryName": formData.categoryName
-                },
-              headers: { "Content-Type": "application/json" },
+                }, headers: {"Authorization" : `Bearer ${parsedToken}`} 
             })
         }
           
@@ -129,7 +128,7 @@ export function DeleteExpenses (id)  {
     
   const parsedToken = JSON.stringify(id)
   return(
-  axios.delete('https://localhost:44332/Expense/'+id)         
+  axios.delete('https://localhost:44332/Expense/'+id,  { headers: {"Authorization" : `Bearer ${parsedToken}`} })         
   .then((response) => {
       const data = response.data;
       return(
