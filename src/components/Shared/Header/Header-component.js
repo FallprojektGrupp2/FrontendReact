@@ -41,10 +41,37 @@ export const HeaderComponent = () => {
       mode="horizontal"
       className="header-component-nav"
     >
-      <Menu.Item key="home"> <Link to={"/home"}>Home</Link></Menu.Item>
-      <Menu.Item key="expense"> <Link to={"/Expense"}>Expenses</Link></Menu.Item>
-      <Menu.Item key="budgets"><Link to={"/Budget"}>Budgets</Link></Menu.Item>
-      <Menu.Item key="statistics"><Link to={"/Statistics"}>Statistics</Link></Menu.Item>
+      <Menu.Item key="home"> <Link to={"/home"} style={{color: 'inherit'}}>Home</Link></Menu.Item>
+      <Menu.SubMenu key="expense" title='Expenses'> 
+      <Menu.Item key="CreateExpense" >
+      <Link to={"/Expense/Create"}>Create Expenses</Link>
+        
+      </Menu.Item>
+      <Menu.Item key="listOfExpese" >
+      <Link to={"/Expense"}>List of Expenses</Link>
+      </Menu.Item>
+      
+      {/* <Link to={"/Expense"}>Expenses</Link> */}
+      </Menu.SubMenu>
+      
+
+      <Menu.SubMenu key="budgets" title='Budgets'> 
+      <Menu.Item key="CreateBudgets" >
+      <Link to={"/Budgets/Create"}>Create Budgets</Link>
+        
+      </Menu.Item>
+      <Menu.Item key="listOfBudgets" >
+      <Link to={"/Budgets"}>List of Budgets</Link>
+      </Menu.Item>
+      
+      </Menu.SubMenu>
+      
+      
+      {/* <Menu.Item key="budgets"><Link to={"/Budget"}>Budgets</Link></Menu.Item> */}
+
+
+
+      <Menu.Item key="statistics"><Link to={"/Statistics"} style={{color: 'inherit'}}>Statistics</Link></Menu.Item>
        <Menu.Item key="logoout" onClick={logOut}>LogOut</Menu.Item>
     </Menu>) :  (<Menu
       mode="horizontal"

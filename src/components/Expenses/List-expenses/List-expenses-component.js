@@ -12,7 +12,7 @@ const { Option } = Select;
 
 
 
-export function ListExpenses({ expenses }) {
+export function ListExpenses() {
 
   const [data, setdata] = useState([]);
 
@@ -46,7 +46,7 @@ export function ListExpenses({ expenses }) {
       setdata(allExpenses)})
      
      
-    },[expenses])
+    },[])
 
     const onClickDelete=(id)=>{
       let allExpenses=[];

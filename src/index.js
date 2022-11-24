@@ -2,14 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from './App';
-import Expense from "./pages/Expense";
+import ListExpense from "./pages/Expense/ListExpense";
+import CreateExpense from "./pages/Expense/CreateExpense";
 import Home from "./pages/Home"
 import reportWebVitals from './reportWebVitals';
 import ContactUs from "./pages/contact/ContactUs";
 import Features from './pages/features/Features';
 import PrivacyPolicy from './pages/privacyPolicy/PrivacyPolicy';
 import Statistics from './pages/Statistics';
-import Budget from './pages/Budget';
+import Budget from './pages/Budgets/ListBudget';
+import CreateBudget from './pages/Budgets/CreateBudget';
 import Landing from './pages/Landing';
 import About from './pages/About/About';
 
@@ -24,9 +26,11 @@ root.render(
           <Route path="/" element={<App />}>
           <Route path="/landing" element={<Landing />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/Expense" element={<Expense />} />
+          <Route path="/Expense" element={<ListExpense />}/>
+          <Route path="/Expense/Create" element={<CreateExpense />} />
           <Route path="/Statistics" element={<Statistics />} />
-          <Route path="/Budget" element={<Budget />} />
+          <Route path="/Budgets" element={<Budget />} />
+          <Route path="/Budgets/Create" element={<CreateBudget />} />
           <Route path="/Features" element={<Features/>}/>
           <Route path="/ContactUs"element={<ContactUs/>}/>
           <Route path="/PrivacyPolicy"element={<PrivacyPolicy/>}/>
