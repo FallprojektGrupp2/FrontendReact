@@ -1,6 +1,6 @@
 import { Col, Row } from "antd";
 import { BudgetHistogramComponent } from "../components/Budget/Budget-diagram/budget-histogram-component";
-import LineChartComponent from "../components/Statistics/Expenses-linechart";
+import {LineChartComponent} from "../components/Statistics/Expenses-linechart";
 import { PieChartComponent } from "../components/Statistics/Expenses-pie-chart";
 import { SumSpentField } from "../components/Statistics/SumSpentField";
 
@@ -32,4 +32,4 @@ const Home = () => {
     </div>);
 };
 
-export default Home
+export default Home;
