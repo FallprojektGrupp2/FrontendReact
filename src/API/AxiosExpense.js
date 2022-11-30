@@ -7,7 +7,8 @@ export function GetExpenses() {
   const parsedToken = JSON.parse(localStorage.getItem('token'));
 
   return (
-    axios.get('https://localhost:44332/Expense/' + parsedToken)
+    axios.get('https://localhost:44332/Expense', { headers: {"Authorization" : `Bearer ${parsedToken}`} })
+    
       .then((response) => {
         console.log("GetExpenses done")
         const data = response.data;
@@ -25,7 +26,7 @@ export const GetSum = () => {
   const parsedToken = JSON.parse(localStorage.getItem('token'));
 
   return (
-    axios.get('https://localhost:44332/PieChart/' + parsedToken)
+    axios.get('https://localhost:44332/PieChart', { headers: {"Authorization" : `Bearer ${parsedToken}`} })
       .then((res) => {
         const data = res.data;
         return data
@@ -38,7 +39,7 @@ export const GetSumSpentYearAndMonth = () => {
   const parsedToken = JSON.parse(localStorage.getItem('token'));
 
   return (
-    axios.get('https://localhost:44332/Expense/TotalSumsSpent/' + parsedToken)
+    axios.get('https://localhost:44332/Expense/TotalSumsSpent', { headers: {"Authorization" : `Bearer ${parsedToken}`} })
       .then((res) => {
         const data = res.data;
         return data
@@ -49,7 +50,7 @@ export const GetSumSpentPerMonth = () => {
   const parsedToken = JSON.parse(localStorage.getItem('token'));
 
   return (
-    axios.get('https://localhost:44332/SpentPerMonth/' + parsedToken)
+    axios.get('https://localhost:44332/SpentPerMonth/', { headers: {"Authorization" : `Bearer ${parsedToken}`} })
       .then((res) => {
         const data = res.data;
         return data
@@ -69,10 +70,8 @@ export const CreateExpense = async (formData) => {
                   "receiver": formData.receiver,
                   "timeStamp": formData.timeStamp,
                   "comment": formData.comment,
-                  "userId": formData.userId,
                   "categoryName": formData.categoryName
-                },
-              headers: { "Content-Type": "application/json" },
+                }, headers: {"Authorization" : `Bearer ${parsedToken}`} 
             })
         }
           
@@ -90,7 +89,7 @@ export const PostBudget = async (formData) => {
                    "userId": formData.userId,
                    "categoryName": formData.categoryName
                 },
-               headers: { "Content-Type": "application/json" },
+               headers: { "Content-Type": "application/json" }
              })
           }
 
@@ -129,7 +128,7 @@ export function DeleteExpenses (id)  {
     
   const parsedToken = JSON.stringify(id)
   return(
-  axios.delete('https://localhost:44332/Expense/'+id)         
+  axios.delete('https://localhost:44332/Expense/'+id,  { headers: {"Authorization" : `Bearer ${parsedToken}`} })         
   .then((response) => {
       const data = response.data;
       return(
@@ -143,7 +142,9 @@ export function DeleteExpenses (id)  {
 export function EditExpenses (id, data)  {
     
   return(
-  axios.put('https://localhost:44332/Expense/'+id, {...data, "userId": localStorage.getItem('token'),})         
+  axios.put('https://localhost:44332/Expense/'+id, {...data}, 
+  {headers: { "Content-Type": "application/json" }}) 
+
   .then((response) => {
       return response;
   })
