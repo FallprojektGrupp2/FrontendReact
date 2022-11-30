@@ -125,8 +125,8 @@ export const PostBudget = async (formData) => {
 //           }          
 
 export function DeleteExpenses (id)  {
-    
-  const parsedToken = JSON.stringify(id)
+   
+  const parsedToken = JSON.parse(localStorage.getItem('token'));
   return(
   axios.delete('https://localhost:44332/Expense/'+id,  { headers: {"Authorization" : `Bearer ${parsedToken}`} })         
   .then((response) => {
@@ -140,10 +140,10 @@ export function DeleteExpenses (id)  {
 }
 
 export function EditExpenses (id, data)  {
-    
+  const parsedToken = JSON.parse(localStorage.getItem('token'));
   return(
   axios.put('https://localhost:44332/Expense/'+id, {...data}, 
-  {headers: { "Content-Type": "application/json" }}) 
+  { headers: {"Authorization" : `Bearer ${parsedToken}`} }) 
 
   .then((response) => {
       return response;
