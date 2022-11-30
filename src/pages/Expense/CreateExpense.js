@@ -1,7 +1,7 @@
-import { ListExpenses } from "../components/Expenses/List-expenses/List-expenses-component";
-import { CreateExpenseForm } from "../components/Expenses/Create-expense/Create-expense-component";
+import { ListExpenses } from "../../components/Expenses/List-expenses/List-expenses-component";
+import { CreateExpenseForm } from "../../components/Expenses/Create-expense/Create-expense-component";
 import {React, useState , useEffect, props } from 'react';
-import { GetExpenses } from "../API/AxiosExpense";
+import { GetExpenses } from "../../API/AxiosExpense";
 import { Col, DatePicker, Row } from "antd";
 
 //skicka event i createexpenseform
@@ -29,21 +29,11 @@ export default function Expense() {
     
         
     return (
-        <>
-        <Row gutter={24} justify="center">
-        <Col span={14}><h1>Expenses</h1> </Col>
-        <Col span={8}><h1>Create expense</h1></Col>
-        </Row>
-        
-        <Row align='top' gutter={24} justify="center">
-            <Col span={14}>
-            <ListExpenses expenses={expenses}/>
-            </Col>
-            <Col align='top' span={8}>
+        <div style={{display: "flex", flexDirection: 'column', padding: 16, maxWidth: 600, margin: 'auto'}}>
+            <h1>Create expense</h1>
             <CreateExpenseForm handleNewExpenseForm={HandleNewExpenseForm}/> 
-            </Col>
-        </Row>
-        </>
+
+        </div>
     )
 
 }
