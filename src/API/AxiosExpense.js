@@ -89,7 +89,7 @@ export const PostBudget = async (formData) => {
                    "userId": formData.userId,
                    "categoryName": formData.categoryName
                 },
-               headers: { "Content-Type": "application/json" },
+               headers: { "Content-Type": "application/json" }
              })
           }
 
@@ -142,7 +142,9 @@ export function DeleteExpenses (id)  {
 export function EditExpenses (id, data)  {
     
   return(
-  axios.put('https://localhost:44332/Expense/'+id, {...data, "userId": localStorage.getItem('token'),})         
+  axios.put('https://localhost:44332/Expense/'+id, {...data}, 
+  {headers: { "Content-Type": "application/json" }}) 
+
   .then((response) => {
       return response;
   })
