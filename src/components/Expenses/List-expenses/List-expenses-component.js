@@ -221,12 +221,14 @@ export function ListExpenses({ expenses }) {
 
     return ( 
       <>
-        {loading &&
-          <LoadingOutlined style={
-            { display:'flex', justifyContent:'center', margin:'5px',fontSize: '50px' }
-          } spin/>}
-        {error && <Alert type='error'message='Error' description="Could not load data, check your internet connection" showIcon>{error}</Alert>}
-         <Table className="table-expenses" size="small" columns={columns} dataSource={data} onChange={handleChange}
+
+         <Table 
+         loading={{indicator:
+          <LoadingOutlined spin />,
+        spinning: loading}}
+          className="table-expenses" 
+          size="small"
+          columns={columns} dataSource={data} onChange={handleChange}
           expandable={{
             expandedRowRender: (record) => (
               <p backgroundColor="black"
