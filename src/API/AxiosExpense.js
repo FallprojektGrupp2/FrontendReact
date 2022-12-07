@@ -150,3 +150,15 @@ export function EditExpenses (id, data)  {
   })
   )
 }
+
+export const GetHistogramBudget = () => {
+  const parsedToken = JSON.parse(localStorage.getItem('token'));
+
+  return(
+    axios.get('https://localhost:44332/Budget/histogram', { headers: {"Authorization" : `Bearer ${parsedToken}`} })
+      .then((res) => {
+        const data = res.data;
+        return data
+      })
+  )
+}

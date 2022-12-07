@@ -7,9 +7,9 @@ import { SumSpentField } from "../components/Statistics/SumSpentField";
 
 const Home = () => {
     return (<div>
-        {/* <BudgetHistogramComponent /> */}
+        <BudgetHistogramComponent />
 
-        <Row justify='center'>
+        {/* <Row justify='center'>
                 <Col>
                     <h1>Statistics for expenses</h1>
                 </Col>
@@ -28,7 +28,7 @@ const Home = () => {
                 <Col span={10}>
                     <PieChartComponent />
                 </Col>
-            </Row>
+            </Row> */}
     </div>);
 };
 
