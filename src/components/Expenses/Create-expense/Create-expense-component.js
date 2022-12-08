@@ -47,7 +47,6 @@ export function CreateExpenseForm ({ handleNewExpenseForm }) {
     
     const handleSubmit = () => {
   
-        formData.userId = JSON.parse(localStorage.getItem('token'));
         formData.amount = amount;
         formData.receiver = receiver;
         formData.comment = comment;
